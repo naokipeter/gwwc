@@ -88,11 +88,21 @@ composer tests
 
 Don't forget to run migrations again afterwards.
 
+## Sharing the site
+
+Navigate to the site's directory in your terminal and run
+
+```
+valet share
+```
+
+A publicly accessible URL will be inserted into your clipboard and is ready to paste directly into your browser.
+
+To stop sharing your site, hit Control + C to cancel the process.
 
 ## Built With
 
 * [Laravel 5.4](https://laravel.com/docs/5.4) - The web framework used
-
 
 ## License
 
