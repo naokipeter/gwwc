@@ -69,7 +69,7 @@ mysql -uroot -h 127.0.0.1
 This creates the tables in the database and fills them with dummy data
 
 ```
-laravel artisan migrate:refresh --seed
+php artisan migrate:refresh --seed
 ```
 
 Now you should be able to load the frontend on `http://gwwc.dev/`

@@ -14,7 +14,7 @@ class AddPledgedAtToUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->datetime('pledged_at');
+            $table->dateTime('pledged_at')->nullable();
         });
     }
 

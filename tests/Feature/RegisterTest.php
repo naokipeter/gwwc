@@ -16,6 +16,8 @@ class RegisterTest extends TestCase
             'email'                 => 'john@foo.com',
             'password'              => 'supersecret',
             'password_confirmation' => 'supersecret',
+            'pledge'                => 10,
+            'pledged_at'            => '2017-02-02 02:02:20',
         ];
 
         $this->json('post', '/api/register', $payload)
