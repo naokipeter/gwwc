@@ -1,0 +1,614 @@
+---
+title: API Reference
+
+language_tabs:
+- bash
+- javascript
+
+includes:
+
+search: true
+
+toc_footers:
+- <a href='http://github.com/mpociot/documentarian'>Documentation Powered by Documentarian</a>
+---
+<!-- START_INFO -->
+# Info
+
+Welcome to the generated API reference.
+[Get Postman Collection](http://localhost/docs/collection.json)
+<!-- END_INFO -->
+
+#Authentication
+<!-- START_c3fa189a6c95ca36ad6ac4791a873d23 -->
+## Login
+
+> Example request:
+
+```bash
+curl -X POST "http://localhost/api/login" \
+-H "Accept: application/json"
+```
+
+```javascript
+var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://localhost/api/login",
+    "method": "POST",
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});
+```
+
+
+### HTTP Request
+`POST api/login`
+
+
+<!-- END_c3fa189a6c95ca36ad6ac4791a873d23 -->
+
+<!-- START_61739f3220a224b34228600649230ad1 -->
+## Logout
+
+> Example request:
+
+```bash
+curl -X POST "http://localhost/api/logout" \
+-H "Accept: application/json"
+```
+
+```javascript
+var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://localhost/api/logout",
+    "method": "POST",
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});
+```
+
+
+### HTTP Request
+`POST api/logout`
+
+
+<!-- END_61739f3220a224b34228600649230ad1 -->
+
+#Donation
+<!-- START_2429f48454ca1a6b8d804d5403cd69c8 -->
+## Get all donations
+
+> Example request:
+
+```bash
+curl -X GET "http://localhost/api/users/{user}/donations" \
+-H "Accept: application/json"
+```
+
+```javascript
+var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://localhost/api/users/{user}/donations",
+    "method": "GET",
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});
+```
+
+> Example response:
+
+```json
+{
+    "error": "Unauthenticated."
+}
+```
+
+### HTTP Request
+`GET api/users/{user}/donations`
+
+`HEAD api/users/{user}/donations`
+
+
+<!-- END_2429f48454ca1a6b8d804d5403cd69c8 -->
+
+<!-- START_7972b1e5c440f19feaf35ab411c8cb5c -->
+## Create a donation
+
+> Example request:
+
+```bash
+curl -X POST "http://localhost/api/users/{user}/donations" \
+-H "Accept: application/json"
+```
+
+```javascript
+var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://localhost/api/users/{user}/donations",
+    "method": "POST",
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});
+```
+
+
+### HTTP Request
+`POST api/users/{user}/donations`
+
+
+<!-- END_7972b1e5c440f19feaf35ab411c8cb5c -->
+
+<!-- START_6c4c5f99b85073cc654a0368927778dc -->
+## Get a donation
+
+> Example request:
+
+```bash
+curl -X GET "http://localhost/api/users/{user}/donations/{donation}" \
+-H "Accept: application/json"
+```
+
+```javascript
+var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://localhost/api/users/{user}/donations/{donation}",
+    "method": "GET",
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});
+```
+
+> Example response:
+
+```json
+{
+    "error": "Unauthenticated."
+}
+```
+
+### HTTP Request
+`GET api/users/{user}/donations/{donation}`
+
+`HEAD api/users/{user}/donations/{donation}`
+
+
+<!-- END_6c4c5f99b85073cc654a0368927778dc -->
+
+<!-- START_17422eb2028def02043fecce2ab52f70 -->
+## Update a donation
+
+> Example request:
+
+```bash
+curl -X PUT "http://localhost/api/users/{user}/donations/{donation}" \
+-H "Accept: application/json"
+```
+
+```javascript
+var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://localhost/api/users/{user}/donations/{donation}",
+    "method": "PUT",
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});
+```
+
+
+### HTTP Request
+`PUT api/users/{user}/donations/{donation}`
+
+`PATCH api/users/{user}/donations/{donation}`
+
+
+<!-- END_17422eb2028def02043fecce2ab52f70 -->
+
+<!-- START_dc2755c4418bd14e1faf45025d9849e2 -->
+## Delete a donation
+
+> Example request:
+
+```bash
+curl -X DELETE "http://localhost/api/users/{user}/donations/{donation}" \
+-H "Accept: application/json"
+```
+
+```javascript
+var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://localhost/api/users/{user}/donations/{donation}",
+    "method": "DELETE",
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});
+```
+
+
+### HTTP Request
+`DELETE api/users/{user}/donations/{donation}`
+
+
+<!-- END_dc2755c4418bd14e1faf45025d9849e2 -->
+
+#Income
+<!-- START_7116cc7eb23b5337ea7c5da4c44eb5b3 -->
+## Display a listing of the resource.
+
+> Example request:
+
+```bash
+curl -X GET "http://localhost/api/users/{user}/incomes" \
+-H "Accept: application/json"
+```
+
+```javascript
+var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://localhost/api/users/{user}/incomes",
+    "method": "GET",
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});
+```
+
+> Example response:
+
+```json
+{
+    "error": "Unauthenticated."
+}
+```
+
+### HTTP Request
+`GET api/users/{user}/incomes`
+
+`HEAD api/users/{user}/incomes`
+
+
+<!-- END_7116cc7eb23b5337ea7c5da4c44eb5b3 -->
+
+<!-- START_59128a1ca8d509d81b9ec3c30aa541ff -->
+## Store a newly created resource in storage.
+
+> Example request:
+
+```bash
+curl -X POST "http://localhost/api/users/{user}/incomes" \
+-H "Accept: application/json"
+```
+
+```javascript
+var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://localhost/api/users/{user}/incomes",
+    "method": "POST",
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});
+```
+
+
+### HTTP Request
+`POST api/users/{user}/incomes`
+
+
+<!-- END_59128a1ca8d509d81b9ec3c30aa541ff -->
+
+<!-- START_bea6cc6226050d23263644cbe1f85ffc -->
+## Display the specified resource.
+
+> Example request:
+
+```bash
+curl -X GET "http://localhost/api/users/{user}/incomes/{income}" \
+-H "Accept: application/json"
+```
+
+```javascript
+var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://localhost/api/users/{user}/incomes/{income}",
+    "method": "GET",
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});
+```
+
+> Example response:
+
+```json
+{
+    "error": "Unauthenticated."
+}
+```
+
+### HTTP Request
+`GET api/users/{user}/incomes/{income}`
+
+`HEAD api/users/{user}/incomes/{income}`
+
+
+<!-- END_bea6cc6226050d23263644cbe1f85ffc -->
+
+<!-- START_c2b93fcfb6e62d482bbb1f179ec2aa6f -->
+## Update the specified resource in storage.
+
+> Example request:
+
+```bash
+curl -X PUT "http://localhost/api/users/{user}/incomes/{income}" \
+-H "Accept: application/json"
+```
+
+```javascript
+var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://localhost/api/users/{user}/incomes/{income}",
+    "method": "PUT",
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});
+```
+
+
+### HTTP Request
+`PUT api/users/{user}/incomes/{income}`
+
+`PATCH api/users/{user}/incomes/{income}`
+
+
+<!-- END_c2b93fcfb6e62d482bbb1f179ec2aa6f -->
+
+<!-- START_e571848a62defe2659bc55b80604335e -->
+## Remove the specified resource from storage.
+
+> Example request:
+
+```bash
+curl -X DELETE "http://localhost/api/users/{user}/incomes/{income}" \
+-H "Accept: application/json"
+```
+
+```javascript
+var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://localhost/api/users/{user}/incomes/{income}",
+    "method": "DELETE",
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});
+```
+
+
+### HTTP Request
+`DELETE api/users/{user}/incomes/{income}`
+
+
+<!-- END_e571848a62defe2659bc55b80604335e -->
+
+#User
+<!-- START_da5727be600e4865c1b632f7745c8e91 -->
+## Get all users
+
+> Example request:
+
+```bash
+curl -X GET "http://localhost/api/users" \
+-H "Accept: application/json"
+```
+
+```javascript
+var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://localhost/api/users",
+    "method": "GET",
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});
+```
+
+> Example response:
+
+```json
+{
+    "error": "Unauthenticated."
+}
+```
+
+### HTTP Request
+`GET api/users`
+
+`HEAD api/users`
+
+
+<!-- END_da5727be600e4865c1b632f7745c8e91 -->
+
+<!-- START_8f99b42746e451f8dc43742e118cb47b -->
+## Get a user
+
+> Example request:
+
+```bash
+curl -X GET "http://localhost/api/users/{user}" \
+-H "Accept: application/json"
+```
+
+```javascript
+var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://localhost/api/users/{user}",
+    "method": "GET",
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});
+```
+
+> Example response:
+
+```json
+{
+    "error": "Unauthenticated."
+}
+```
+
+### HTTP Request
+`GET api/users/{user}`
+
+`HEAD api/users/{user}`
+
+
+<!-- END_8f99b42746e451f8dc43742e118cb47b -->
+
+<!-- START_48a3115be98493a3c866eb0e23347262 -->
+## Update a user
+
+> Example request:
+
+```bash
+curl -X PUT "http://localhost/api/users/{user}" \
+-H "Accept: application/json"
+```
+
+```javascript
+var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://localhost/api/users/{user}",
+    "method": "PUT",
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});
+```
+
+
+### HTTP Request
+`PUT api/users/{user}`
+
+`PATCH api/users/{user}`
+
+
+<!-- END_48a3115be98493a3c866eb0e23347262 -->
+
+#general
+<!-- START_d7b7952e7fdddc07c978c9bdaf757acf -->
+## Handle a registration request for the application.
+
+> Example request:
+
+```bash
+curl -X POST "http://localhost/api/register" \
+-H "Accept: application/json"
+```
+
+```javascript
+var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://localhost/api/register",
+    "method": "POST",
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});
+```
+
+
+### HTTP Request
+`POST api/register`
+
+
+<!-- END_d7b7952e7fdddc07c978c9bdaf757acf -->
+
