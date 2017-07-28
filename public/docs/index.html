@@ -46,7 +46,7 @@
           <!-- START_INFO -->
 <h1>Info</h1>
 <p>Welcome to the generated API reference.
-<a href="http://localhost/docs/collection.json">Get Postman Collection</a></p>
+<a href="http://gwwc.dev/docs/collection.json">Get Postman Collection</a></p>
 <!-- END_INFO -->
 <h1>Authentication</h1>
 <!-- START_c3fa189a6c95ca36ad6ac4791a873d23 -->
@@ -54,15 +54,16 @@
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X POST "http://localhost/api/login" \
--H "Accept: application/json"</code></pre>
+<pre><code class="language-bash">curl -X POST "http://gwwc.dev/api/login"  \
+-H "Accept: application/json" \
+--data "email=zoie.cartwright@gmail.com&amp;password=gwwc"</code></pre>
 <pre><code class="language-javascript">var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost/api/login",
+    "url": "http://gwwc.dev/api/login",
     "method": "POST",
     "headers": {
-        "accept": "application/json"
+        "accept": "application/json",
     }
 }
 
@@ -77,15 +78,17 @@ $.ajax(settings).done(function (response) {
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X POST "http://localhost/api/logout" \
--H "Accept: application/json"</code></pre>
+<pre><code class="language-bash">curl -X POST "http://gwwc.dev/api/logout" \
+-H "Accept: application/json" \
+-H "Authorization: Bearer LoHEVj8dcdmPXMmtgqDgb0i9VGQRzYJMWQ5qh1KSBFOmUle9fnWT0SDEV9Uc"</code></pre>
 <pre><code class="language-javascript">var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost/api/logout",
+    "url": "http://gwwc.dev/api/logout",
     "method": "POST",
     "headers": {
-        "accept": "application/json"
+        "accept": "application/json",
+        "authorization": "Bearer LoHEVj8dcdmPXMmtgqDgb0i9VGQRzYJMWQ5qh1KSBFOmUle9fnWT0SDEV9Uc"
     }
 }
 
@@ -101,15 +104,17 @@ $.ajax(settings).done(function (response) {
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X GET "http://localhost/api/users/{user}/donations" \
--H "Accept: application/json"</code></pre>
+<pre><code class="language-bash">curl -X GET "http://gwwc.dev/api/users/1/donations" \
+-H "Accept: application/json" \
+-H "Authorization: Bearer LoHEVj8dcdmPXMmtgqDgb0i9VGQRzYJMWQ5qh1KSBFOmUle9fnWT0SDEV9Uc"</code></pre>
 <pre><code class="language-javascript">var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost/api/users/{user}/donations",
+    "url": "http://gwwc.dev/api/users/1/donations",
     "method": "GET",
     "headers": {
-        "accept": "application/json"
+        "accept": "application/json",
+        "authorization": "Bearer LoHEVj8dcdmPXMmtgqDgb0i9VGQRzYJMWQ5qh1KSBFOmUle9fnWT0SDEV9Uc"
     }
 }
 
@@ -131,15 +136,18 @@ $.ajax(settings).done(function (response) {
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X POST "http://localhost/api/users/{user}/donations" \
--H "Accept: application/json"</code></pre>
+<pre><code class="language-bash">curl -X POST "http://gwwc.dev/api/users/1/donations" \
+-H "Accept: application/json" \
+-H "Authorization: Bearer LoHEVj8dcdmPXMmtgqDgb0i9VGQRzYJMWQ5qh1KSBFOmUle9fnWT0SDEV9Uc"
+--data "currency=CHF&amp;amount=100&amp;date=2017-02-21&amp;user_id=1"</code></pre>
 <pre><code class="language-javascript">var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost/api/users/{user}/donations",
+    "url": "http://gwwc.dev/api/users/1/donations",
     "method": "POST",
     "headers": {
-        "accept": "application/json"
+        "accept": "application/json",
+        "authorization": "Bearer LoHEVj8dcdmPXMmtgqDgb0i9VGQRzYJMWQ5qh1KSBFOmUle9fnWT0SDEV9Uc"
     }
 }
 
@@ -154,15 +162,17 @@ $.ajax(settings).done(function (response) {
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X GET "http://localhost/api/users/{user}/donations/{donation}" \
--H "Accept: application/json"</code></pre>
+<pre><code class="language-bash">curl -X GET "http://gwwc.dev/api/users/1/donations/1" \
+-H "Accept: application/json" \
+-H "Authorization: Bearer LoHEVj8dcdmPXMmtgqDgb0i9VGQRzYJMWQ5qh1KSBFOmUle9fnWT0SDEV9Uc"</code></pre>
 <pre><code class="language-javascript">var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost/api/users/{user}/donations/{donation}",
+    "url": "http://gwwc.dev/api/users/1/donations/1",
     "method": "GET",
     "headers": {
-        "accept": "application/json"
+        "accept": "application/json",
+        "authorization": "Bearer LoHEVj8dcdmPXMmtgqDgb0i9VGQRzYJMWQ5qh1KSBFOmUle9fnWT0SDEV9Uc"
     }
 }
 
@@ -184,15 +194,17 @@ $.ajax(settings).done(function (response) {
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X PUT "http://localhost/api/users/{user}/donations/{donation}" \
--H "Accept: application/json"</code></pre>
+<pre><code class="language-bash">curl -X PUT "http://gwwc.dev/api/users/1/donations/1" \
+-H "Accept: application/json" \
+-H "Authorization: Bearer LoHEVj8dcdmPXMmtgqDgb0i9VGQRzYJMWQ5qh1KSBFOmUle9fnWT0SDEV9Uc"</code></pre>
 <pre><code class="language-javascript">var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost/api/users/{user}/donations/{donation}",
+    "url": "http://gwwc.dev/api/users/1/donations/1",
     "method": "PUT",
     "headers": {
-        "accept": "application/json"
+        "accept": "application/json",
+        "authorization": "Bearer LoHEVj8dcdmPXMmtgqDgb0i9VGQRzYJMWQ5qh1KSBFOmUle9fnWT0SDEV9Uc"
     }
 }
 
@@ -208,15 +220,18 @@ $.ajax(settings).done(function (response) {
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X DELETE "http://localhost/api/users/{user}/donations/{donation}" \
--H "Accept: application/json"</code></pre>
+<pre><code class="language-bash">curl -X DELETE "http://gwwc.dev/api/users/1/donations/1" \
+-H "Accept: application/json" \
+-H "Authorization: Bearer LoHEVj8dcdmPXMmtgqDgb0i9VGQRzYJMWQ5qh1KSBFOmUle9fnWT0SDEV9Uc"
+--data "charity=Foobar"</code></pre>
 <pre><code class="language-javascript">var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost/api/users/{user}/donations/{donation}",
+    "url": "http://gwwc.dev/api/users/1/donations/1",
     "method": "DELETE",
     "headers": {
-        "accept": "application/json"
+        "accept": "application/json",
+        "authorization": "Bearer LoHEVj8dcdmPXMmtgqDgb0i9VGQRzYJMWQ5qh1KSBFOmUle9fnWT0SDEV9Uc"
     }
 }
 
@@ -228,19 +243,21 @@ $.ajax(settings).done(function (response) {
 <!-- END_dc2755c4418bd14e1faf45025d9849e2 -->
 <h1>Income</h1>
 <!-- START_7116cc7eb23b5337ea7c5da4c44eb5b3 -->
-<h2>Display a listing of the resource.</h2>
+<h2>Get all incomes</h2>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X GET "http://localhost/api/users/{user}/incomes" \
--H "Accept: application/json"</code></pre>
+<pre><code class="language-bash">curl -X GET "http://gwwc.dev/api/users/1/incomes" \
+-H "Accept: application/json" \
+-H "Authorization: Bearer LoHEVj8dcdmPXMmtgqDgb0i9VGQRzYJMWQ5qh1KSBFOmUle9fnWT0SDEV9Uc"</code></pre>
 <pre><code class="language-javascript">var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost/api/users/{user}/incomes",
+    "url": "http://gwwc.dev/api/users/1/incomes",
     "method": "GET",
     "headers": {
-        "accept": "application/json"
+        "accept": "application/json",
+        "authorization": "Bearer LoHEVj8dcdmPXMmtgqDgb0i9VGQRzYJMWQ5qh1KSBFOmUle9fnWT0SDEV9Uc"
     }
 }
 
@@ -258,19 +275,22 @@ $.ajax(settings).done(function (response) {
 <p><code>HEAD api/users/{user}/incomes</code></p>
 <!-- END_7116cc7eb23b5337ea7c5da4c44eb5b3 -->
 <!-- START_59128a1ca8d509d81b9ec3c30aa541ff -->
-<h2>Store a newly created resource in storage.</h2>
+<h2>Create an income</h2>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X POST "http://localhost/api/users/{user}/incomes" \
--H "Accept: application/json"</code></pre>
+<pre><code class="language-bash">curl -X POST "http://gwwc.dev/api/users/1/incomes" \
+-H "Accept: application/json" \
+-H "Authorization: Bearer LoHEVj8dcdmPXMmtgqDgb0i9VGQRzYJMWQ5qh1KSBFOmUle9fnWT0SDEV9Uc"
+--data "currency=CHF&amp;amount=100&amp;year=2017&amp;user_id=1&amp;percentage_pledged=10"</code></pre>
 <pre><code class="language-javascript">var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost/api/users/{user}/incomes",
+    "url": "http://gwwc.dev/api/users/1/incomes",
     "method": "POST",
     "headers": {
-        "accept": "application/json"
+        "accept": "application/json",
+        "authorization": "Bearer LoHEVj8dcdmPXMmtgqDgb0i9VGQRzYJMWQ5qh1KSBFOmUle9fnWT0SDEV9Uc"
     }
 }
 
@@ -281,19 +301,21 @@ $.ajax(settings).done(function (response) {
 <p><code>POST api/users/{user}/incomes</code></p>
 <!-- END_59128a1ca8d509d81b9ec3c30aa541ff -->
 <!-- START_bea6cc6226050d23263644cbe1f85ffc -->
-<h2>Display the specified resource.</h2>
+<h2>Get an income</h2>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X GET "http://localhost/api/users/{user}/incomes/{income}" \
--H "Accept: application/json"</code></pre>
+<pre><code class="language-bash">curl -X GET "http://gwwc.dev/api/users/1/incomes/1" \
+-H "Accept: application/json" \
+-H "Authorization: Bearer LoHEVj8dcdmPXMmtgqDgb0i9VGQRzYJMWQ5qh1KSBFOmUle9fnWT0SDEV9Uc"</code></pre>
 <pre><code class="language-javascript">var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost/api/users/{user}/incomes/{income}",
+    "url": "http://gwwc.dev/api/users/1/incomes/1",
     "method": "GET",
     "headers": {
-        "accept": "application/json"
+        "accept": "application/json",
+        "authorization": "Bearer LoHEVj8dcdmPXMmtgqDgb0i9VGQRzYJMWQ5qh1KSBFOmUle9fnWT0SDEV9Uc"
     }
 }
 
@@ -311,19 +333,21 @@ $.ajax(settings).done(function (response) {
 <p><code>HEAD api/users/{user}/incomes/{income}</code></p>
 <!-- END_bea6cc6226050d23263644cbe1f85ffc -->
 <!-- START_c2b93fcfb6e62d482bbb1f179ec2aa6f -->
-<h2>Update the specified resource in storage.</h2>
+<h2>Update an income</h2>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X PUT "http://localhost/api/users/{user}/incomes/{income}" \
--H "Accept: application/json"</code></pre>
+<pre><code class="language-bash">curl -X PUT "http://gwwc.dev/api/users/1/incomes/1" \
+-H "Accept: application/json" \
+-H "Authorization: Bearer LoHEVj8dcdmPXMmtgqDgb0i9VGQRzYJMWQ5qh1KSBFOmUle9fnWT0SDEV9Uc"</code></pre>
 <pre><code class="language-javascript">var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost/api/users/{user}/incomes/{income}",
+    "url": "http://gwwc.dev/api/users/1/incomes/1",
     "method": "PUT",
     "headers": {
-        "accept": "application/json"
+        "accept": "application/json",
+        "authorization": "Bearer LoHEVj8dcdmPXMmtgqDgb0i9VGQRzYJMWQ5qh1KSBFOmUle9fnWT0SDEV9Uc"
     }
 }
 
@@ -335,19 +359,22 @@ $.ajax(settings).done(function (response) {
 <p><code>PATCH api/users/{user}/incomes/{income}</code></p>
 <!-- END_c2b93fcfb6e62d482bbb1f179ec2aa6f -->
 <!-- START_e571848a62defe2659bc55b80604335e -->
-<h2>Remove the specified resource from storage.</h2>
+<h2>Delete an income</h2>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X DELETE "http://localhost/api/users/{user}/incomes/{income}" \
--H "Accept: application/json"</code></pre>
+<pre><code class="language-bash">curl -X DELETE "http://gwwc.dev/api/users/1/incomes/1" \
+-H "Accept: application/json" \
+-H "Authorization: Bearer LoHEVj8dcdmPXMmtgqDgb0i9VGQRzYJMWQ5qh1KSBFOmUle9fnWT0SDEV9Uc"
+--data "amount=1000"</code></pre>
 <pre><code class="language-javascript">var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost/api/users/{user}/incomes/{income}",
+    "url": "http://gwwc.dev/api/users/1/incomes/1",
     "method": "DELETE",
     "headers": {
-        "accept": "application/json"
+        "accept": "application/json",
+        "authorization": "Bearer LoHEVj8dcdmPXMmtgqDgb0i9VGQRzYJMWQ5qh1KSBFOmUle9fnWT0SDEV9Uc"
     }
 }
 
@@ -363,15 +390,17 @@ $.ajax(settings).done(function (response) {
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X GET "http://localhost/api/users" \
--H "Accept: application/json"</code></pre>
+<pre><code class="language-bash">curl -X GET "http://gwwc.dev/api/users" \
+-H "Accept: application/json" \
+-H "Authorization: Bearer LoHEVj8dcdmPXMmtgqDgb0i9VGQRzYJMWQ5qh1KSBFOmUle9fnWT0SDEV9Uc"</code></pre>
 <pre><code class="language-javascript">var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost/api/users",
+    "url": "http://gwwc.dev/api/users",
     "method": "GET",
     "headers": {
-        "accept": "application/json"
+        "accept": "application/json",
+        "authorization": "Bearer LoHEVj8dcdmPXMmtgqDgb0i9VGQRzYJMWQ5qh1KSBFOmUle9fnWT0SDEV9Uc"
     }
 }
 
@@ -393,15 +422,17 @@ $.ajax(settings).done(function (response) {
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X GET "http://localhost/api/users/{user}" \
--H "Accept: application/json"</code></pre>
+<pre><code class="language-bash">curl -X GET "http://gwwc.dev/api/users/1" \
+-H "Accept: application/json" \
+-H "Authorization: Bearer LoHEVj8dcdmPXMmtgqDgb0i9VGQRzYJMWQ5qh1KSBFOmUle9fnWT0SDEV9Uc"</code></pre>
 <pre><code class="language-javascript">var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost/api/users/{user}",
+    "url": "http://gwwc.dev/api/users/1",
     "method": "GET",
     "headers": {
-        "accept": "application/json"
+        "accept": "application/json",
+        "authorization": "Bearer LoHEVj8dcdmPXMmtgqDgb0i9VGQRzYJMWQ5qh1KSBFOmUle9fnWT0SDEV9Uc"
     }
 }
 
@@ -423,15 +454,17 @@ $.ajax(settings).done(function (response) {
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X PUT "http://localhost/api/users/{user}" \
--H "Accept: application/json"</code></pre>
+<pre><code class="language-bash">curl -X PUT "http://gwwc.dev/api/users/1" \
+-H "Accept: application/json" \
+-H "Authorization: Bearer LoHEVj8dcdmPXMmtgqDgb0i9VGQRzYJMWQ5qh1KSBFOmUle9fnWT0SDEV9Uc"</code></pre>
 <pre><code class="language-javascript">var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost/api/users/{user}",
+    "url": "http://gwwc.dev/api/users/1",
     "method": "PUT",
     "headers": {
-        "accept": "application/json"
+        "accept": "application/json",
+        "authorization": "Bearer LoHEVj8dcdmPXMmtgqDgb0i9VGQRzYJMWQ5qh1KSBFOmUle9fnWT0SDEV9Uc"
     }
 }
 
@@ -442,21 +475,23 @@ $.ajax(settings).done(function (response) {
 <p><code>PUT api/users/{user}</code></p>
 <p><code>PATCH api/users/{user}</code></p>
 <!-- END_48a3115be98493a3c866eb0e23347262 -->
-<h1>general</h1>
-<!-- START_d7b7952e7fdddc07c978c9bdaf757acf -->
-<h2>Handle a registration request for the application.</h2>
+<!-- START_d2db7a9fe3abd141d5adbc367a88e969 -->
+<h2>Delete a user</h2>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X POST "http://localhost/api/register" \
--H "Accept: application/json"</code></pre>
+<pre><code class="language-bash">curl -X DELETE "http://gwwc.dev/api/users/1" \
+-H "Accept: application/json" \
+-H "Authorization: Bearer LoHEVj8dcdmPXMmtgqDgb0i9VGQRzYJMWQ5qh1KSBFOmUle9fnWT0SDEV9Uc"
+--data "name=Fritz"</code></pre>
 <pre><code class="language-javascript">var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost/api/register",
-    "method": "POST",
+    "url": "http://gwwc.dev/api/users/2",
+    "method": "DELETE",
     "headers": {
-        "accept": "application/json"
+        "accept": "application/json",
+        "authorization": "Bearer LoHEVj8dcdmPXMmtgqDgb0i9VGQRzYJMWQ5qh1KSBFOmUle9fnWT0SDEV9Uc"
     }
 }
 
@@ -464,8 +499,8 @@ $.ajax(settings).done(function (response) {
     console.log(response);
 });</code></pre>
 <h3>HTTP Request</h3>
-<p><code>POST api/register</code></p>
-<!-- END_d7b7952e7fdddc07c978c9bdaf757acf -->
+<p><code>DELETE api/users/{user}</code></p>
+<!-- END_d2db7a9fe3abd141d5adbc367a88e969 -->
       </div>
       <div class="dark-box">
                         <div class="lang-selector">

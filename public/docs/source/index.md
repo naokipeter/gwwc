@@ -16,7 +16,7 @@ toc_footers:
 # Info
 
 Welcome to the generated API reference.
-[Get Postman Collection](http://localhost/docs/collection.json)
+[Get Postman Collection](http://gwwc.dev/docs/collection.json)
 <!-- END_INFO -->
 
 #Authentication
@@ -26,18 +26,19 @@ Welcome to the generated API reference.
 > Example request:
 
 ```bash
-curl -X POST "http://localhost/api/login" \
--H "Accept: application/json"
+curl -X POST "http://gwwc.dev/api/login"  \
+-H "Accept: application/json" \
+--data "email=zoie.cartwright@gmail.com&password=gwwc"
 ```
 
 ```javascript
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost/api/login",
+    "url": "http://gwwc.dev/api/login",
     "method": "POST",
     "headers": {
-        "accept": "application/json"
+        "accept": "application/json",
     }
 }
 
@@ -59,18 +60,20 @@ $.ajax(settings).done(function (response) {
 > Example request:
 
 ```bash
-curl -X POST "http://localhost/api/logout" \
--H "Accept: application/json"
+curl -X POST "http://gwwc.dev/api/logout" \
+-H "Accept: application/json" \
+-H "Authorization: Bearer LoHEVj8dcdmPXMmtgqDgb0i9VGQRzYJMWQ5qh1KSBFOmUle9fnWT0SDEV9Uc"
 ```
 
 ```javascript
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost/api/logout",
+    "url": "http://gwwc.dev/api/logout",
     "method": "POST",
     "headers": {
-        "accept": "application/json"
+        "accept": "application/json",
+        "authorization": "Bearer LoHEVj8dcdmPXMmtgqDgb0i9VGQRzYJMWQ5qh1KSBFOmUle9fnWT0SDEV9Uc"
     }
 }
 
@@ -93,18 +96,20 @@ $.ajax(settings).done(function (response) {
 > Example request:
 
 ```bash
-curl -X GET "http://localhost/api/users/{user}/donations" \
--H "Accept: application/json"
+curl -X GET "http://gwwc.dev/api/users/1/donations" \
+-H "Accept: application/json" \
+-H "Authorization: Bearer LoHEVj8dcdmPXMmtgqDgb0i9VGQRzYJMWQ5qh1KSBFOmUle9fnWT0SDEV9Uc"
 ```
 
 ```javascript
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost/api/users/{user}/donations",
+    "url": "http://gwwc.dev/api/users/1/donations",
     "method": "GET",
     "headers": {
-        "accept": "application/json"
+        "accept": "application/json",
+        "authorization": "Bearer LoHEVj8dcdmPXMmtgqDgb0i9VGQRzYJMWQ5qh1KSBFOmUle9fnWT0SDEV9Uc"
     }
 }
 
@@ -135,18 +140,21 @@ $.ajax(settings).done(function (response) {
 > Example request:
 
 ```bash
-curl -X POST "http://localhost/api/users/{user}/donations" \
--H "Accept: application/json"
+curl -X POST "http://gwwc.dev/api/users/1/donations" \
+-H "Accept: application/json" \
+-H "Authorization: Bearer LoHEVj8dcdmPXMmtgqDgb0i9VGQRzYJMWQ5qh1KSBFOmUle9fnWT0SDEV9Uc"
+--data "currency=CHF&amount=100&date=2017-02-21&user_id=1"
 ```
 
 ```javascript
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost/api/users/{user}/donations",
+    "url": "http://gwwc.dev/api/users/1/donations",
     "method": "POST",
     "headers": {
-        "accept": "application/json"
+        "accept": "application/json",
+        "authorization": "Bearer LoHEVj8dcdmPXMmtgqDgb0i9VGQRzYJMWQ5qh1KSBFOmUle9fnWT0SDEV9Uc"
     }
 }
 
@@ -168,18 +176,20 @@ $.ajax(settings).done(function (response) {
 > Example request:
 
 ```bash
-curl -X GET "http://localhost/api/users/{user}/donations/{donation}" \
--H "Accept: application/json"
+curl -X GET "http://gwwc.dev/api/users/1/donations/1" \
+-H "Accept: application/json" \
+-H "Authorization: Bearer LoHEVj8dcdmPXMmtgqDgb0i9VGQRzYJMWQ5qh1KSBFOmUle9fnWT0SDEV9Uc"
 ```
 
 ```javascript
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost/api/users/{user}/donations/{donation}",
+    "url": "http://gwwc.dev/api/users/1/donations/1",
     "method": "GET",
     "headers": {
-        "accept": "application/json"
+        "accept": "application/json",
+        "authorization": "Bearer LoHEVj8dcdmPXMmtgqDgb0i9VGQRzYJMWQ5qh1KSBFOmUle9fnWT0SDEV9Uc"
     }
 }
 
@@ -210,18 +220,20 @@ $.ajax(settings).done(function (response) {
 > Example request:
 
 ```bash
-curl -X PUT "http://localhost/api/users/{user}/donations/{donation}" \
--H "Accept: application/json"
+curl -X PUT "http://gwwc.dev/api/users/1/donations/1" \
+-H "Accept: application/json" \
+-H "Authorization: Bearer LoHEVj8dcdmPXMmtgqDgb0i9VGQRzYJMWQ5qh1KSBFOmUle9fnWT0SDEV9Uc"
 ```
 
 ```javascript
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost/api/users/{user}/donations/{donation}",
+    "url": "http://gwwc.dev/api/users/1/donations/1",
     "method": "PUT",
     "headers": {
-        "accept": "application/json"
+        "accept": "application/json",
+        "authorization": "Bearer LoHEVj8dcdmPXMmtgqDgb0i9VGQRzYJMWQ5qh1KSBFOmUle9fnWT0SDEV9Uc"
     }
 }
 
@@ -245,18 +257,21 @@ $.ajax(settings).done(function (response) {
 > Example request:
 
 ```bash
-curl -X DELETE "http://localhost/api/users/{user}/donations/{donation}" \
--H "Accept: application/json"
+curl -X DELETE "http://gwwc.dev/api/users/1/donations/1" \
+-H "Accept: application/json" \
+-H "Authorization: Bearer LoHEVj8dcdmPXMmtgqDgb0i9VGQRzYJMWQ5qh1KSBFOmUle9fnWT0SDEV9Uc"
+--data "charity=Foobar"
 ```
 
 ```javascript
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost/api/users/{user}/donations/{donation}",
+    "url": "http://gwwc.dev/api/users/1/donations/1",
     "method": "DELETE",
     "headers": {
-        "accept": "application/json"
+        "accept": "application/json",
+        "authorization": "Bearer LoHEVj8dcdmPXMmtgqDgb0i9VGQRzYJMWQ5qh1KSBFOmUle9fnWT0SDEV9Uc"
     }
 }
 
@@ -274,23 +289,25 @@ $.ajax(settings).done(function (response) {
 
 #Income
 <!-- START_7116cc7eb23b5337ea7c5da4c44eb5b3 -->
-## Display a listing of the resource.
+## Get all incomes
 
 > Example request:
 
 ```bash
-curl -X GET "http://localhost/api/users/{user}/incomes" \
--H "Accept: application/json"
+curl -X GET "http://gwwc.dev/api/users/1/incomes" \
+-H "Accept: application/json" \
+-H "Authorization: Bearer LoHEVj8dcdmPXMmtgqDgb0i9VGQRzYJMWQ5qh1KSBFOmUle9fnWT0SDEV9Uc"
 ```
 
 ```javascript
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost/api/users/{user}/incomes",
+    "url": "http://gwwc.dev/api/users/1/incomes",
     "method": "GET",
     "headers": {
-        "accept": "application/json"
+        "accept": "application/json",
+        "authorization": "Bearer LoHEVj8dcdmPXMmtgqDgb0i9VGQRzYJMWQ5qh1KSBFOmUle9fnWT0SDEV9Uc"
     }
 }
 
@@ -316,23 +333,26 @@ $.ajax(settings).done(function (response) {
 <!-- END_7116cc7eb23b5337ea7c5da4c44eb5b3 -->
 
 <!-- START_59128a1ca8d509d81b9ec3c30aa541ff -->
-## Store a newly created resource in storage.
+## Create an income
 
 > Example request:
 
 ```bash
-curl -X POST "http://localhost/api/users/{user}/incomes" \
--H "Accept: application/json"
+curl -X POST "http://gwwc.dev/api/users/1/incomes" \
+-H "Accept: application/json" \
+-H "Authorization: Bearer LoHEVj8dcdmPXMmtgqDgb0i9VGQRzYJMWQ5qh1KSBFOmUle9fnWT0SDEV9Uc"
+--data "currency=CHF&amount=100&year=2017&user_id=1&percentage_pledged=10"
 ```
 
 ```javascript
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost/api/users/{user}/incomes",
+    "url": "http://gwwc.dev/api/users/1/incomes",
     "method": "POST",
     "headers": {
-        "accept": "application/json"
+        "accept": "application/json",
+        "authorization": "Bearer LoHEVj8dcdmPXMmtgqDgb0i9VGQRzYJMWQ5qh1KSBFOmUle9fnWT0SDEV9Uc"
     }
 }
 
@@ -349,23 +369,25 @@ $.ajax(settings).done(function (response) {
 <!-- END_59128a1ca8d509d81b9ec3c30aa541ff -->
 
 <!-- START_bea6cc6226050d23263644cbe1f85ffc -->
-## Display the specified resource.
+## Get an income
 
 > Example request:
 
 ```bash
-curl -X GET "http://localhost/api/users/{user}/incomes/{income}" \
--H "Accept: application/json"
+curl -X GET "http://gwwc.dev/api/users/1/incomes/1" \
+-H "Accept: application/json" \
+-H "Authorization: Bearer LoHEVj8dcdmPXMmtgqDgb0i9VGQRzYJMWQ5qh1KSBFOmUle9fnWT0SDEV9Uc"
 ```
 
 ```javascript
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost/api/users/{user}/incomes/{income}",
+    "url": "http://gwwc.dev/api/users/1/incomes/1",
     "method": "GET",
     "headers": {
-        "accept": "application/json"
+        "accept": "application/json",
+        "authorization": "Bearer LoHEVj8dcdmPXMmtgqDgb0i9VGQRzYJMWQ5qh1KSBFOmUle9fnWT0SDEV9Uc"
     }
 }
 
@@ -391,23 +413,25 @@ $.ajax(settings).done(function (response) {
 <!-- END_bea6cc6226050d23263644cbe1f85ffc -->
 
 <!-- START_c2b93fcfb6e62d482bbb1f179ec2aa6f -->
-## Update the specified resource in storage.
+## Update an income
 
 > Example request:
 
 ```bash
-curl -X PUT "http://localhost/api/users/{user}/incomes/{income}" \
--H "Accept: application/json"
+curl -X PUT "http://gwwc.dev/api/users/1/incomes/1" \
+-H "Accept: application/json" \
+-H "Authorization: Bearer LoHEVj8dcdmPXMmtgqDgb0i9VGQRzYJMWQ5qh1KSBFOmUle9fnWT0SDEV9Uc"
 ```
 
 ```javascript
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost/api/users/{user}/incomes/{income}",
+    "url": "http://gwwc.dev/api/users/1/incomes/1",
     "method": "PUT",
     "headers": {
-        "accept": "application/json"
+        "accept": "application/json",
+        "authorization": "Bearer LoHEVj8dcdmPXMmtgqDgb0i9VGQRzYJMWQ5qh1KSBFOmUle9fnWT0SDEV9Uc"
     }
 }
 
@@ -426,23 +450,26 @@ $.ajax(settings).done(function (response) {
 <!-- END_c2b93fcfb6e62d482bbb1f179ec2aa6f -->
 
 <!-- START_e571848a62defe2659bc55b80604335e -->
-## Remove the specified resource from storage.
+## Delete an income
 
 > Example request:
 
 ```bash
-curl -X DELETE "http://localhost/api/users/{user}/incomes/{income}" \
--H "Accept: application/json"
+curl -X DELETE "http://gwwc.dev/api/users/1/incomes/1" \
+-H "Accept: application/json" \
+-H "Authorization: Bearer LoHEVj8dcdmPXMmtgqDgb0i9VGQRzYJMWQ5qh1KSBFOmUle9fnWT0SDEV9Uc"
+--data "amount=1000"
 ```
 
 ```javascript
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost/api/users/{user}/incomes/{income}",
+    "url": "http://gwwc.dev/api/users/1/incomes/1",
     "method": "DELETE",
     "headers": {
-        "accept": "application/json"
+        "accept": "application/json",
+        "authorization": "Bearer LoHEVj8dcdmPXMmtgqDgb0i9VGQRzYJMWQ5qh1KSBFOmUle9fnWT0SDEV9Uc"
     }
 }
 
@@ -465,18 +492,20 @@ $.ajax(settings).done(function (response) {
 > Example request:
 
 ```bash
-curl -X GET "http://localhost/api/users" \
--H "Accept: application/json"
+curl -X GET "http://gwwc.dev/api/users" \
+-H "Accept: application/json" \
+-H "Authorization: Bearer LoHEVj8dcdmPXMmtgqDgb0i9VGQRzYJMWQ5qh1KSBFOmUle9fnWT0SDEV9Uc"
 ```
 
 ```javascript
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost/api/users",
+    "url": "http://gwwc.dev/api/users",
     "method": "GET",
     "headers": {
-        "accept": "application/json"
+        "accept": "application/json",
+        "authorization": "Bearer LoHEVj8dcdmPXMmtgqDgb0i9VGQRzYJMWQ5qh1KSBFOmUle9fnWT0SDEV9Uc"
     }
 }
 
@@ -507,18 +536,20 @@ $.ajax(settings).done(function (response) {
 > Example request:
 
 ```bash
-curl -X GET "http://localhost/api/users/{user}" \
--H "Accept: application/json"
+curl -X GET "http://gwwc.dev/api/users/1" \
+-H "Accept: application/json" \
+-H "Authorization: Bearer LoHEVj8dcdmPXMmtgqDgb0i9VGQRzYJMWQ5qh1KSBFOmUle9fnWT0SDEV9Uc"
 ```
 
 ```javascript
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost/api/users/{user}",
+    "url": "http://gwwc.dev/api/users/1",
     "method": "GET",
     "headers": {
-        "accept": "application/json"
+        "accept": "application/json",
+        "authorization": "Bearer LoHEVj8dcdmPXMmtgqDgb0i9VGQRzYJMWQ5qh1KSBFOmUle9fnWT0SDEV9Uc"
     }
 }
 
@@ -549,18 +580,20 @@ $.ajax(settings).done(function (response) {
 > Example request:
 
 ```bash
-curl -X PUT "http://localhost/api/users/{user}" \
--H "Accept: application/json"
+curl -X PUT "http://gwwc.dev/api/users/1" \
+-H "Accept: application/json" \
+-H "Authorization: Bearer LoHEVj8dcdmPXMmtgqDgb0i9VGQRzYJMWQ5qh1KSBFOmUle9fnWT0SDEV9Uc"
 ```
 
 ```javascript
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost/api/users/{user}",
+    "url": "http://gwwc.dev/api/users/1",
     "method": "PUT",
     "headers": {
-        "accept": "application/json"
+        "accept": "application/json",
+        "authorization": "Bearer LoHEVj8dcdmPXMmtgqDgb0i9VGQRzYJMWQ5qh1KSBFOmUle9fnWT0SDEV9Uc"
     }
 }
 
@@ -578,25 +611,27 @@ $.ajax(settings).done(function (response) {
 
 <!-- END_48a3115be98493a3c866eb0e23347262 -->
 
-#general
-<!-- START_d7b7952e7fdddc07c978c9bdaf757acf -->
-## Handle a registration request for the application.
+<!-- START_d2db7a9fe3abd141d5adbc367a88e969 -->
+## Delete a user
 
 > Example request:
 
 ```bash
-curl -X POST "http://localhost/api/register" \
--H "Accept: application/json"
+curl -X DELETE "http://gwwc.dev/api/users/1" \
+-H "Accept: application/json" \
+-H "Authorization: Bearer LoHEVj8dcdmPXMmtgqDgb0i9VGQRzYJMWQ5qh1KSBFOmUle9fnWT0SDEV9Uc"
+--data "name=Fritz"
 ```
 
 ```javascript
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost/api/register",
-    "method": "POST",
+    "url": "http://gwwc.dev/api/users/2",
+    "method": "DELETE",
     "headers": {
-        "accept": "application/json"
+        "accept": "application/json",
+        "authorization": "Bearer LoHEVj8dcdmPXMmtgqDgb0i9VGQRzYJMWQ5qh1KSBFOmUle9fnWT0SDEV9Uc"
     }
 }
 
@@ -607,8 +642,7 @@ $.ajax(settings).done(function (response) {
 
 
 ### HTTP Request
-`POST api/register`
+`DELETE api/users/{user}`
 
 
-<!-- END_d7b7952e7fdddc07c978c9bdaf757acf -->
-
+<!-- END_d2db7a9fe3abd141d5adbc367a88e969 -->

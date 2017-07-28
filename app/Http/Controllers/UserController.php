@@ -40,21 +40,6 @@ class UserController extends Controller
     }
 
     /**
-     * Create a user
-     */
-    public function store(Request $request)
-    {
-        // Validate
-        $this->validateRequest($request);
-
-        // Create
-        $user = User::create($request->all());
-
-        // Return response
-        return response()->json($user, 201);
-    }
-
-    /**
      * Update a user
      */
     public function update(Request $request, User $user)

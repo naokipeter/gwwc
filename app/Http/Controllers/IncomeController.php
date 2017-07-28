@@ -19,7 +19,7 @@ class IncomeController extends Controller
     }
 
     /**
-     * Display a listing of incomes.
+     * Get all incomes
      *
      * @param User $user
      * @return \Illuminate\Http\Response
@@ -34,7 +34,7 @@ class IncomeController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Get an income
      *
      * @param int         $userId
      * @param \App\Income $income
@@ -46,7 +46,7 @@ class IncomeController extends Controller
     }
 
     /**
-     * Store a newly created income in storage.
+     * Create a income
      *
      * @param \Illuminate\Http\Request $request
      * @param int                      $userId
@@ -65,7 +65,7 @@ class IncomeController extends Controller
     }
 
     /**
-     * Update the specified income in storage.
+     * Update an income
      *
      * @param \Illuminate\Http\Request $request
      * @param int                      $userId
@@ -85,7 +85,7 @@ class IncomeController extends Controller
     }
 
     /**
-     * Remove the specified income from storage.
+     * Delete an income
      *
      * @param int         $userId
      * @param \App\Income $income

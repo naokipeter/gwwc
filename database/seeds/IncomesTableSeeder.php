@@ -26,7 +26,7 @@ class IncomesTableSeeder extends Seeder
                     'amount'             => $faker->numberBetween(10, 2500) * 100,
                     'currency'           => $faker->randomElement(['EUR', 'USD', 'GBP', 'CHF']),
                     'year'               => $year,
-                    'user_id'            => $j,
+                    'user_id'            => !$i && !$j ? 1 : $j,
                     'percentage_pledged' => 10,
                 ]);
             }

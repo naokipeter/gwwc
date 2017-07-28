@@ -33,7 +33,7 @@ Route::group(['middleware' => 'auth:api'], function() {
     */
 
     Route::resource('users', 'UserController',  ['only' => [
-        'index', 'show', 'store', 'update', 'destroy'
+        'index', 'show', 'update', 'destroy'
     ]]);
 
 

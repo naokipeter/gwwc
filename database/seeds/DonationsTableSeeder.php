@@ -24,7 +24,7 @@ class DonationsTableSeeder extends Seeder
                 'amount'   => $faker->numberBetween(1, 1000) * 10,
                 'currency' => $faker->randomElement(['EUR', 'USD', 'GBP', 'CHF']),
                 'date'     => $faker->dateTimeBetween('-3 years'),
-                'user_id'  => $faker->numberBetween(1, 11),
+                'user_id'  => !$i ? 1 : $faker->numberBetween(1, 11),
             ]);
         }
     }

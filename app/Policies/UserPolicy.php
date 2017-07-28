@@ -10,18 +10,6 @@ class UserPolicy
     use HandlesAuthorization;
 
     /**
-     * Admin?
-     *
-     * @param mixed $user
-     * @param mixed $ability
-     * @return bool|void
-     */
-    public function before($user, $ability)
-    {
-        return $user->isAdmin() ?: null;
-    }
-
-    /**
      * Determine whether the user can view the user.
      *
      * @param  \App\User  $user
@@ -30,7 +18,7 @@ class UserPolicy
      */
     public function view(User $user, User $targetUser)
     {
-        return $user->id === $targetUser->id;
+        return $user->id === $targetUser->id || $user->isAdmin();
     }
 
     /**
@@ -41,7 +29,7 @@ class UserPolicy
      */
     public function create(User $user)
     {
-        return false;
+        return $user->isAdmin();
     }
 
     /**
@@ -53,7 +41,7 @@ class UserPolicy
      */
     public function update(User $user, User $targetUser)
     {
-        return $user->id === $targetUser->id;
+        return $user->id === $targetUser->id || $user->isAdmin();
     }
 
     /**
@@ -65,6 +53,6 @@ class UserPolicy
      */
     public function delete(User $user, User $targetUser)
     {
-        return false;
+        return $user->isAdmin() && $user->id !== $targetUser->id;
     }
 }

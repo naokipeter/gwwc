@@ -113,7 +113,7 @@
         <!-- Placed at the end of the document so the pages load faster -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"><\/script>')</script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
         <script type="text/javascript">
             var api      = "{{ $api }}";      // API endpoint
             var userId   = {{ $user }};       // User ID
@@ -136,8 +136,11 @@
              *-------------------------------------------
              */
             jQuery(document).ready(function($) {
-                // Fetch user
-                $.get(resource('users', userId)).then(function(data) {
+                /**------------------------------------------
+                 * Get user
+                 *-------------------------------------------
+                 */
+                $.get(resource('users', userId)).done(function(data) {
                     // Show welcome message
                     $('#welcome').text('Welcome, ' + data.name);
 
@@ -156,8 +159,11 @@
                     setup();
                 });
 
-                // Fetch donations
-                $.get(resource('donations')).then(function(data) {
+                /**------------------------------------------
+                 * Get donations
+                 *-------------------------------------------
+                 */
+                $.get(resource('donations')).done(function(data) {
                     var sum         = 0;
                     var currentYear = new Date().getFullYear();
 
@@ -184,8 +190,11 @@
                     setup();
                 });
 
-                // Fetch incomes
-                $.get(resource('incomes')).then(function(data) {
+                /**------------------------------------------
+                 * Get incomes
+                 *-------------------------------------------
+                 */
+                $.get(resource('incomes')).done(function(data) {
                     // Show past incomes in overview
                     for (var i = 0; i < data.length; i++) {
                         incomesPerYear[data[i].year] = data[i];
