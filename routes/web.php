@@ -12,5 +12,5 @@
 */
 
 Route::get('/', function () {
-    return view('my-giving', ['api' => url('/api'), 'user' => 1, 'apiToken' => 'LoHEVj8dcdmPXMmtgqDgb0i9VGQRzYJMWQ5qh1KSBFOmUle9fnWT0SDEV9Uc']);
+    return view('my-giving', ['api' => url('/api')]);
 });
