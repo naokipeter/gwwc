@@ -23,7 +23,7 @@ class IncomesTableSeeder extends Seeder
         for ($i = 0; $i < 3; $i++) {
             for ($j = 1; $j <= $userCount; $j++) {
                 Income::create([
-                    'amount'             => $faker->numberBetween(10, 2500) * 100,
+                    'amount'             => $faker->numberBetween(10, 1500) * 100,
                     'currency'           => $faker->randomElement(['EUR', 'USD', 'GBP', 'CHF']),
                     'year'               => $year,
                     'user_id'            => !$i && !$j ? 1 : $j,

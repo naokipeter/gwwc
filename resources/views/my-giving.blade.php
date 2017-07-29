@@ -37,6 +37,9 @@
             h1 {
                 margin-top: 40px;
             }
+            .navbar-inverse .navbar-nav>li>a {
+                color: white;
+            }
         </style>
     </head>
     <body>
@@ -53,12 +56,13 @@
             </div>
             <div id="navbar" class="collapse navbar-collapse">
               <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Home</a></li>
-                <!--<li><a href="#about">About</a></li>
+                <!--<li class="active"><a href="#">Home</a></li>
+                <li><a href="#about">About</a></li>
                 <li><a href="#contact">Contact</a></li>-->
               </ul>
               <ul class="nav navbar-nav navbar-right">
                 <li><a href="#" id="welcome"></a></li>
+                <li class="active"><a href="#" id="logout">Logout</a></li>
               </ul>
             </div><!--/.nav-collapse -->
           </div>
@@ -107,13 +111,37 @@
 
         </div><!-- /.container -->
 
+        <!-- Login modal -->
+        <div id="login-modal" class="modal fade" role="dialog" data-backdrop="static">
+            <div class="modal-dialog modal-sm">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <form action="/api/login" method="post" id="login-form">
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label for="email">Email address:</label>
+                                <input type="email" class="form-control" id="email">
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Password:</label>
+                                <input type="password" class="form-control" id="password">
+                            </div>                    
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" id="login-button" class="btn btn-default">Login</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
 
         <!-- Bootstrap core JavaScript
         ================================================== -->
         <!-- Placed at the end of the document so the pages load faster -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"><\/script>')</script>
-        <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <script type="text/javascript">
             var api      = "{{ $api }}";      // API endpoint
             var userId   = {{ $user }};       // User ID
@@ -131,11 +159,69 @@
             var pledgePercentage = 0;
             var incomesPerYear   = {};
 
-            /**------------------------------------------
-             * Routes
-             *-------------------------------------------
-             */
             jQuery(document).ready(function($) {
+                // Logout button
+                $('#logout').click(function() {
+                    // Log out from API
+                    $.post({
+                        url: api + "/logout",
+                        headers: { 
+                            "Authorization": "Bearer " + apiToken
+                        },
+                    }).done(function(data) {
+                        // Delete cookies
+                        deleteCookie('user');
+                        deleteCookie('api_token');
+
+                        // Reload page
+                        location.reload();
+                    });
+                });
+
+                // Bind login form
+                $('#login-form').submit(function() {
+                    // Disable button
+                    $('#login-button').button('loading');
+
+                    // Submit login form
+                    $.post({
+                        url: api + "/login",
+                        data: {"email": $('#email').val(), "password": $('#password').val()}
+                    }).done(function(data) {
+                        // Save userId and api_token
+                        userId   = data.data.id;
+                        apiToken = data.data.api_token;
+                        // Save userId and api_token in cookie
+                        document.cookie = "api_token=" + apiToken;
+                        document.cookie = "user=" + userId;
+
+                        // Close modal
+                        $('#login-modal').modal('hide');
+
+                        // Trigger API calls
+                        fetchResources();
+                    }).fail(function(data) {
+                        alert('Wrong credentials. Try again');
+                    })
+                    return false;
+                });
+
+                // Show login form if no cookie
+                userId   = getCookie('user');
+                apiToken = getCookie('api_token');
+                if (userId && apiToken) {
+                    // Trigger API calls
+                    fetchResources();
+                } else {
+                    // Show login modal
+                    $('#login-modal').modal('show');
+                }
+            });
+
+            /**
+             * Fetch resources from API
+             */
+            function fetchResources() {
                 /**------------------------------------------
                  * Get user
                  *-------------------------------------------
@@ -210,7 +296,7 @@
                     // Display content (if ready)
                     setup();
                 });
-            });
+            }
 
             /**
              * Setup function to format widgets, text, etc. and display contents
@@ -293,7 +379,7 @@
              * Helper function to format amounts
              */
             function formatAmount(amount, currency) {
-                var formattedAmount = numberWithCommas(amount);
+                var formattedAmount = numberWithCommas(Math.floor(amount * 100) / 100);
                 switch (currency) {
                     case 'USD':
                         return '$' + formattedAmount;
@@ -329,6 +415,26 @@
               var year       = date.getFullYear();
 
               return day + ' ' + monthNames[monthIndex] + ' ' + year;
+            }
+
+            /**
+             * Get cookie by name
+             */
+            function getCookie(name) {
+                var value = "; " + document.cookie;
+                var parts = value.split("; " + name + "=");
+                if (parts.length == 2) {
+                    return parts.pop().split(";").shift();
+                } else {
+                    return false;
+                }
+            }
+
+            /**
+             * Delete cookie
+             */
+            function deleteCookie(name) {
+                document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
             }
         </script>
     </body>

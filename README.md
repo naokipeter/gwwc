@@ -49,7 +49,7 @@ git clone https://github.com/naokoon/gwwc.git
 cd gwwc/
 ```
 
-Install dependencies with composer
+Install dependencies
 
 ```
 composer install
@@ -73,6 +73,11 @@ php artisan migrate:refresh --seed
 ```
 
 Now you should be able to load the frontend on `http://gwwc.dev/`
+
+You can now log in with any email of dummy user in the `users` table and the password `gwwc`.
+
+User: admin@test.com
+Pass: gwwc
 
 ## API
 
