@@ -105,7 +105,7 @@ valet share
 
 A publicly accessible URL will be inserted into your clipboard and is ready to paste directly into your browser.
 
-To stop sharing your site, hit Control + C to cancel the process.
+To stop sharing your site, hit `Control + C` to cancel the process.
 
 ## Built With
 
