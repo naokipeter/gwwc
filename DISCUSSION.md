@@ -5,10 +5,11 @@ This file contains some comments about decisions and tradeoffs I made.
 ## Backend
 
 ### Limitations
-* No currency conversion for past or present, i.e. $1 = £1 = €1 = ...
+* No currency conversion for past or present, i.e. $1 = £1 = 1€ = ...
 * Dummy data can be inconsistent. E.g. a user who has made the pledge in 2017 may have donations 
 and incomes from previous years.
 * No tests for resource classes
+* An income can only have one currency and one amount
 
 ### Choice of framework
 This is my first project with Laravel. I gave it a try because it looked less verbose and 
@@ -20,6 +21,19 @@ like Valet. The things I missed most are:
 * Nelmio ApiDoc Bundle 
 
 I followed this tutorial here: https://www.toptal.com/laravel/restful-laravel-api-tutorial
+
+### Design choices
+
+The backend has three resource types: User, Donation and Income. I tried to design it according 
+to the Domain Driven Design approach. The pledge isn't a independent entity because it is 
+fully defined by its immutable percetage property (as with sums of money or colors, there's no 
+inherent identity that stays constant over time even if you change properties). As there can't be 
+Users without a pledge in the system, the pledge percentage is a non-nullable property of the 
+User. The date of the initial pledge must coincide with the creation date of the User entity.
+
+As users can make higher pledges in the course of their careers, the pledge percentage is also 
+part of the Income resource (I assume that you can only go up with the pledge percentage at the 
+end of a year).
 
 ## Frontend
 
