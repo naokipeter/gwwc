@@ -37,5 +37,5 @@ libraries (except jQuery) tend to have shorter shelf-lives and often oblige you 
 duplicate some parts of your backend code (e.g. model, validation logic, etc.). 
 For webapps that do need a fat client, I mainly used the Cappuccino Framework and 
 the Ratatosk REST client in the past. For projects that need to support mobile browsers 
-and/or native mobile apps, I'd use the Ionic.
+and/or native mobile apps, I'd use Ionic.
 
