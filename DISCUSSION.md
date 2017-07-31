@@ -41,6 +41,7 @@ end of a year).
 * Creation, Update and Deletion of resources not implemented
 * Currency in the paragraph below the pledge heading is always USD
 * The JavaScript code could need some refactoring
+* No tests
 
 ### Choice of framework
 I used jQuery for making queries to the backend. If the frontend wasn't required to be a
