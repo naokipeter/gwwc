@@ -25,7 +25,7 @@ I followed this tutorial here: https://www.toptal.com/laravel/restful-laravel-ap
 
 ### Limitations
 * Creation, Update and Deletion of resources not implemented
-* Currency in the paragraph below the Pledge heading is always USD
+* Currency in the paragraph below the pledge heading is always USD
 * The JavaScript code could need some refactoring
 
 ### Choice of framework
@@ -36,6 +36,6 @@ compelling reason for the domain logic to reside in the frontend, mainly because
 libraries (except jQuery) tend to have shorter shelf-lives and often oblige you to 
 duplicate some parts of your backend code (e.g. model, validation logic, etc.). 
 For webapps that do need a fat client, I mainly used the Cappuccino Framework and 
-the Ratatosk REST client in the past. For projects that need to support mobile browsers 
-and/or native mobile apps, I'd use Ionic.
+the Ratatosk REST client in the past. For future projects that need to support mobile 
+browsers and/or native mobile apps, I'd probably use Ionic.
 
