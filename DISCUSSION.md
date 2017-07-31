@@ -25,7 +25,7 @@ I followed this tutorial here: https://www.toptal.com/laravel/restful-laravel-ap
 ### Design choices
 
 The backend has three resource types: User, Donation and Income. I tried to design it according 
-to the Domain Driven Design approach. The pledge isn't a independent entity because it is 
+to the Domain Driven Design approach. The pledge isn't an independent entity because it is 
 fully defined by its immutable percetage property (as with sums of money or colors, there's no 
 inherent identity that stays constant over time even if you change properties). As there can't be 
 Users without a pledge in the system, the pledge percentage is a non-nullable property of the 
