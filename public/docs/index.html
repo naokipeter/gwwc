@@ -56,7 +56,7 @@
 </blockquote>
 <pre><code class="language-bash">curl -X POST "http://gwwc.dev/api/login"  \
 -H "Accept: application/json" \
---data "email=zoie.cartwright@gmail.com&amp;password=gwwc"</code></pre>
+--data "email=admin@test.com&amp;password=gwwc"</code></pre>
 <pre><code class="language-javascript">var settings = {
     "async": true,
     "crossDomain": true,
@@ -70,6 +70,21 @@
 $.ajax(settings).done(function (response) {
     console.log(response);
 });</code></pre>
+<blockquote>
+<p>Example response:</p>
+</blockquote>
+<pre><code class="language-json">{
+    "data": {
+        "id": 1,
+        "name": "John Doe",
+        "email": "admin@test.com",
+        "pledge": 10,
+        "created_at": "2017-07-28 23:15:52",
+        "updated_at": "2017-08-07 15:23:45",
+        "api_token": "fHiU0DWF9mfrNuOtXbwAP8IwAKYUQYW2tSHnEIIiWi1xYgqaB37vMtGeiu2l",
+        "pledged_at": "2016-07-04 09:55:33"
+    }
+}</code></pre>
 <h3>HTTP Request</h3>
 <p><code>POST api/login</code></p>
 <!-- END_c3fa189a6c95ca36ad6ac4791a873d23 -->
@@ -80,7 +95,7 @@ $.ajax(settings).done(function (response) {
 </blockquote>
 <pre><code class="language-bash">curl -X POST "http://gwwc.dev/api/logout" \
 -H "Accept: application/json" \
--H "Authorization: Bearer LoHEVj8dcdmPXMmtgqDgb0i9VGQRzYJMWQ5qh1KSBFOmUle9fnWT0SDEV9Uc"</code></pre>
+-H "Authorization: Bearer fHiU0DWF9mfrNuOtXbwAP8IwAKYUQYW2tSHnEIIiWi1xYgqaB37vMtGeiu2l"</code></pre>
 <pre><code class="language-javascript">var settings = {
     "async": true,
     "crossDomain": true,
@@ -88,13 +103,19 @@ $.ajax(settings).done(function (response) {
     "method": "POST",
     "headers": {
         "accept": "application/json",
-        "authorization": "Bearer LoHEVj8dcdmPXMmtgqDgb0i9VGQRzYJMWQ5qh1KSBFOmUle9fnWT0SDEV9Uc"
+        "authorization": "Bearer fHiU0DWF9mfrNuOtXbwAP8IwAKYUQYW2tSHnEIIiWi1xYgqaB37vMtGeiu2l"
     }
 }
 
 $.ajax(settings).done(function (response) {
     console.log(response);
 });</code></pre>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code>{
+    "data": "User logged out."
+}</code></pre>
 <h3>HTTP Request</h3>
 <p><code>POST api/logout</code></p>
 <!-- END_61739f3220a224b34228600649230ad1 -->
@@ -106,7 +127,7 @@ $.ajax(settings).done(function (response) {
 </blockquote>
 <pre><code class="language-bash">curl -X GET "http://gwwc.dev/api/users/1/donations" \
 -H "Accept: application/json" \
--H "Authorization: Bearer LoHEVj8dcdmPXMmtgqDgb0i9VGQRzYJMWQ5qh1KSBFOmUle9fnWT0SDEV9Uc"</code></pre>
+-H "Authorization: Bearer fHiU0DWF9mfrNuOtXbwAP8IwAKYUQYW2tSHnEIIiWi1xYgqaB37vMtGeiu2l"</code></pre>
 <pre><code class="language-javascript">var settings = {
     "async": true,
     "crossDomain": true,
@@ -114,7 +135,7 @@ $.ajax(settings).done(function (response) {
     "method": "GET",
     "headers": {
         "accept": "application/json",
-        "authorization": "Bearer LoHEVj8dcdmPXMmtgqDgb0i9VGQRzYJMWQ5qh1KSBFOmUle9fnWT0SDEV9Uc"
+        "authorization": "Bearer fHiU0DWF9mfrNuOtXbwAP8IwAKYUQYW2tSHnEIIiWi1xYgqaB37vMtGeiu2l"
     }
 }
 
@@ -124,9 +145,26 @@ $.ajax(settings).done(function (response) {
 <blockquote>
 <p>Example response:</p>
 </blockquote>
-<pre><code class="language-json">{
-    "error": "Unauthenticated."
-}</code></pre>
+<pre><code class="language-json">[
+    {
+        "id": 86,
+        "created_at": "2017-07-28 23:15:52",
+        "updated_at": "2017-07-28 23:15:52",
+        "charity": "McClure, Wisoky and Tremblay",
+        "amount": "9010.00",
+        "currency": "GBP",
+        "date": "2017-04-30"
+    },
+    {
+        "id": 2,
+        "created_at": "2017-07-28 23:15:52",
+        "updated_at": "2017-07-28 23:15:52",
+        "charity": "Witting Group",
+        "amount": "3580.00",
+        "currency": "GBP",
+        "date": "2017-01-25"
+    }
+]</code></pre>
 <h3>HTTP Request</h3>
 <p><code>GET api/users/{user}/donations</code></p>
 <p><code>HEAD api/users/{user}/donations</code></p>
@@ -138,8 +176,8 @@ $.ajax(settings).done(function (response) {
 </blockquote>
 <pre><code class="language-bash">curl -X POST "http://gwwc.dev/api/users/1/donations" \
 -H "Accept: application/json" \
--H "Authorization: Bearer LoHEVj8dcdmPXMmtgqDgb0i9VGQRzYJMWQ5qh1KSBFOmUle9fnWT0SDEV9Uc"
---data "currency=CHF&amp;amount=100&amp;date=2017-02-21&amp;user_id=1"</code></pre>
+-H "Authorization: Bearer fHiU0DWF9mfrNuOtXbwAP8IwAKYUQYW2tSHnEIIiWi1xYgqaB37vMtGeiu2l"
+--data "charity=Halligalli&amp;currency=CHF&amp;amount=200&amp;date=2017-02-02&amp;user_id=1"</code></pre>
 <pre><code class="language-javascript">var settings = {
     "async": true,
     "crossDomain": true,
@@ -147,13 +185,25 @@ $.ajax(settings).done(function (response) {
     "method": "POST",
     "headers": {
         "accept": "application/json",
-        "authorization": "Bearer LoHEVj8dcdmPXMmtgqDgb0i9VGQRzYJMWQ5qh1KSBFOmUle9fnWT0SDEV9Uc"
+        "authorization": "Bearer fHiU0DWF9mfrNuOtXbwAP8IwAKYUQYW2tSHnEIIiWi1xYgqaB37vMtGeiu2l"
     }
 }
 
 $.ajax(settings).done(function (response) {
     console.log(response);
 });</code></pre>
+<blockquote>
+<p>Exmaple response</p>
+</blockquote>
+<pre><code>{
+    "charity": "Halligalli",
+    "currency": "CHF",
+    "amount": "200",
+    "date": "2017-02-02",
+    "updated_at": "2017-08-07 15:37:04",
+    "created_at": "2017-08-07 15:37:04",
+    "id": 101
+}</code></pre>
 <h3>HTTP Request</h3>
 <p><code>POST api/users/{user}/donations</code></p>
 <!-- END_7972b1e5c440f19feaf35ab411c8cb5c -->
@@ -164,7 +214,7 @@ $.ajax(settings).done(function (response) {
 </blockquote>
 <pre><code class="language-bash">curl -X GET "http://gwwc.dev/api/users/1/donations/1" \
 -H "Accept: application/json" \
--H "Authorization: Bearer LoHEVj8dcdmPXMmtgqDgb0i9VGQRzYJMWQ5qh1KSBFOmUle9fnWT0SDEV9Uc"</code></pre>
+-H "Authorization: Bearer fHiU0DWF9mfrNuOtXbwAP8IwAKYUQYW2tSHnEIIiWi1xYgqaB37vMtGeiu2l"</code></pre>
 <pre><code class="language-javascript">var settings = {
     "async": true,
     "crossDomain": true,
@@ -172,7 +222,7 @@ $.ajax(settings).done(function (response) {
     "method": "GET",
     "headers": {
         "accept": "application/json",
-        "authorization": "Bearer LoHEVj8dcdmPXMmtgqDgb0i9VGQRzYJMWQ5qh1KSBFOmUle9fnWT0SDEV9Uc"
+        "authorization": "Bearer fHiU0DWF9mfrNuOtXbwAP8IwAKYUQYW2tSHnEIIiWi1xYgqaB37vMtGeiu2l"
     }
 }
 
@@ -183,7 +233,13 @@ $.ajax(settings).done(function (response) {
 <p>Example response:</p>
 </blockquote>
 <pre><code class="language-json">{
-    "error": "Unauthenticated."
+    "id": 1,
+    "created_at": "2017-07-28 23:15:52",
+    "updated_at": "2017-07-28 23:15:52",
+    "charity": "Hermiston PLC",
+    "amount": "3490.00",
+    "currency": "GBP",
+    "date": "2016-07-08"
 }</code></pre>
 <h3>HTTP Request</h3>
 <p><code>GET api/users/{user}/donations/{donation}</code></p>
@@ -196,7 +252,8 @@ $.ajax(settings).done(function (response) {
 </blockquote>
 <pre><code class="language-bash">curl -X PUT "http://gwwc.dev/api/users/1/donations/1" \
 -H "Accept: application/json" \
--H "Authorization: Bearer LoHEVj8dcdmPXMmtgqDgb0i9VGQRzYJMWQ5qh1KSBFOmUle9fnWT0SDEV9Uc"</code></pre>
+-H "Authorization: Bearer fHiU0DWF9mfrNuOtXbwAP8IwAKYUQYW2tSHnEIIiWi1xYgqaB37vMtGeiu2l"
+--data "currency=CHF"</code></pre>
 <pre><code class="language-javascript">var settings = {
     "async": true,
     "crossDomain": true,
@@ -204,13 +261,25 @@ $.ajax(settings).done(function (response) {
     "method": "PUT",
     "headers": {
         "accept": "application/json",
-        "authorization": "Bearer LoHEVj8dcdmPXMmtgqDgb0i9VGQRzYJMWQ5qh1KSBFOmUle9fnWT0SDEV9Uc"
+        "authorization": "Bearer fHiU0DWF9mfrNuOtXbwAP8IwAKYUQYW2tSHnEIIiWi1xYgqaB37vMtGeiu2l"
     }
 }
 
 $.ajax(settings).done(function (response) {
     console.log(response);
 });</code></pre>
+<blockquote>
+<p>Exmaple response</p>
+</blockquote>
+<pre><code>{
+    "id": 1,
+    "created_at": "2017-07-28 23:15:52",
+    "updated_at": "2017-08-07 15:35:07",
+    "charity": "McClure, Wisoky and Tremblay",
+    "amount": "9010.00",
+    "currency": "CHF",
+    "date": "2017-04-30"
+}</code></pre>
 <h3>HTTP Request</h3>
 <p><code>PUT api/users/{user}/donations/{donation}</code></p>
 <p><code>PATCH api/users/{user}/donations/{donation}</code></p>
@@ -222,8 +291,7 @@ $.ajax(settings).done(function (response) {
 </blockquote>
 <pre><code class="language-bash">curl -X DELETE "http://gwwc.dev/api/users/1/donations/1" \
 -H "Accept: application/json" \
--H "Authorization: Bearer LoHEVj8dcdmPXMmtgqDgb0i9VGQRzYJMWQ5qh1KSBFOmUle9fnWT0SDEV9Uc"
---data "charity=Foobar"</code></pre>
+-H "Authorization: Bearer fHiU0DWF9mfrNuOtXbwAP8IwAKYUQYW2tSHnEIIiWi1xYgqaB37vMtGeiu2l"</code></pre>
 <pre><code class="language-javascript">var settings = {
     "async": true,
     "crossDomain": true,
@@ -231,7 +299,7 @@ $.ajax(settings).done(function (response) {
     "method": "DELETE",
     "headers": {
         "accept": "application/json",
-        "authorization": "Bearer LoHEVj8dcdmPXMmtgqDgb0i9VGQRzYJMWQ5qh1KSBFOmUle9fnWT0SDEV9Uc"
+        "authorization": "Bearer fHiU0DWF9mfrNuOtXbwAP8IwAKYUQYW2tSHnEIIiWi1xYgqaB37vMtGeiu2l"
     }
 }
 
@@ -249,7 +317,7 @@ $.ajax(settings).done(function (response) {
 </blockquote>
 <pre><code class="language-bash">curl -X GET "http://gwwc.dev/api/users/1/incomes" \
 -H "Accept: application/json" \
--H "Authorization: Bearer LoHEVj8dcdmPXMmtgqDgb0i9VGQRzYJMWQ5qh1KSBFOmUle9fnWT0SDEV9Uc"</code></pre>
+-H "Authorization: Bearer fHiU0DWF9mfrNuOtXbwAP8IwAKYUQYW2tSHnEIIiWi1xYgqaB37vMtGeiu2l"</code></pre>
 <pre><code class="language-javascript">var settings = {
     "async": true,
     "crossDomain": true,
@@ -257,7 +325,7 @@ $.ajax(settings).done(function (response) {
     "method": "GET",
     "headers": {
         "accept": "application/json",
-        "authorization": "Bearer LoHEVj8dcdmPXMmtgqDgb0i9VGQRzYJMWQ5qh1KSBFOmUle9fnWT0SDEV9Uc"
+        "authorization": "Bearer fHiU0DWF9mfrNuOtXbwAP8IwAKYUQYW2tSHnEIIiWi1xYgqaB37vMtGeiu2l"
     }
 }
 
@@ -267,9 +335,26 @@ $.ajax(settings).done(function (response) {
 <blockquote>
 <p>Example response:</p>
 </blockquote>
-<pre><code class="language-json">{
-    "error": "Unauthenticated."
-}</code></pre>
+<pre><code class="language-json">[
+    {
+        "id": 14,
+        "amount": "232600.00",
+        "currency": "EUR",
+        "year": 2017,
+        "percentage_pledged": 10,
+        "created_at": "2017-07-28 23:15:53",
+        "updated_at": "2017-07-28 23:15:53"
+    },
+    {
+        "id": 6,
+        "amount": "198500.00",
+        "currency": "EUR",
+        "year": 2016,
+        "percentage_pledged": 10,
+        "created_at": "2017-07-28 23:15:53",
+        "updated_at": "2017-07-28 23:15:53"
+    }
+]</code></pre>
 <h3>HTTP Request</h3>
 <p><code>GET api/users/{user}/incomes</code></p>
 <p><code>HEAD api/users/{user}/incomes</code></p>
@@ -281,8 +366,8 @@ $.ajax(settings).done(function (response) {
 </blockquote>
 <pre><code class="language-bash">curl -X POST "http://gwwc.dev/api/users/1/incomes" \
 -H "Accept: application/json" \
--H "Authorization: Bearer LoHEVj8dcdmPXMmtgqDgb0i9VGQRzYJMWQ5qh1KSBFOmUle9fnWT0SDEV9Uc"
---data "currency=CHF&amp;amount=100&amp;year=2017&amp;user_id=1&amp;percentage_pledged=10"</code></pre>
+-H "Authorization: Bearer fHiU0DWF9mfrNuOtXbwAP8IwAKYUQYW2tSHnEIIiWi1xYgqaB37vMtGeiu2l"
+--data "currency=CHF&amp;amount=20000&amp;year=2017&amp;user_id=1&amp;percentage_pledged=10"</code></pre>
 <pre><code class="language-javascript">var settings = {
     "async": true,
     "crossDomain": true,
@@ -290,13 +375,25 @@ $.ajax(settings).done(function (response) {
     "method": "POST",
     "headers": {
         "accept": "application/json",
-        "authorization": "Bearer LoHEVj8dcdmPXMmtgqDgb0i9VGQRzYJMWQ5qh1KSBFOmUle9fnWT0SDEV9Uc"
+        "authorization": "Bearer fHiU0DWF9mfrNuOtXbwAP8IwAKYUQYW2tSHnEIIiWi1xYgqaB37vMtGeiu2l"
     }
 }
 
 $.ajax(settings).done(function (response) {
     console.log(response);
 });</code></pre>
+<blockquote>
+<p>Example response</p>
+</blockquote>
+<pre><code class="language-json">{
+    "year": "2017",
+    "currency": "CHF",
+    "amount": "20000",
+    "percentage_pledged": "10",
+    "updated_at": "2017-08-07 15:48:34",
+    "created_at": "2017-08-07 15:48:34",
+    "id": 25
+}</code></pre>
 <h3>HTTP Request</h3>
 <p><code>POST api/users/{user}/incomes</code></p>
 <!-- END_59128a1ca8d509d81b9ec3c30aa541ff -->
@@ -307,7 +404,7 @@ $.ajax(settings).done(function (response) {
 </blockquote>
 <pre><code class="language-bash">curl -X GET "http://gwwc.dev/api/users/1/incomes/1" \
 -H "Accept: application/json" \
--H "Authorization: Bearer LoHEVj8dcdmPXMmtgqDgb0i9VGQRzYJMWQ5qh1KSBFOmUle9fnWT0SDEV9Uc"</code></pre>
+-H "Authorization: Bearer fHiU0DWF9mfrNuOtXbwAP8IwAKYUQYW2tSHnEIIiWi1xYgqaB37vMtGeiu2l"</code></pre>
 <pre><code class="language-javascript">var settings = {
     "async": true,
     "crossDomain": true,
@@ -315,7 +412,7 @@ $.ajax(settings).done(function (response) {
     "method": "GET",
     "headers": {
         "accept": "application/json",
-        "authorization": "Bearer LoHEVj8dcdmPXMmtgqDgb0i9VGQRzYJMWQ5qh1KSBFOmUle9fnWT0SDEV9Uc"
+        "authorization": "Bearer fHiU0DWF9mfrNuOtXbwAP8IwAKYUQYW2tSHnEIIiWi1xYgqaB37vMtGeiu2l"
     }
 }
 
@@ -326,7 +423,13 @@ $.ajax(settings).done(function (response) {
 <p>Example response:</p>
 </blockquote>
 <pre><code class="language-json">{
-    "error": "Unauthenticated."
+    "id": 1,
+    "amount": "29000.00",
+    "currency": "GBP",
+    "year": 2015,
+    "percentage_pledged": 10,
+    "created_at": "2017-07-28 23:15:53",
+    "updated_at": "2017-07-28 23:15:53"
 }</code></pre>
 <h3>HTTP Request</h3>
 <p><code>GET api/users/{user}/incomes/{income}</code></p>
@@ -339,7 +442,8 @@ $.ajax(settings).done(function (response) {
 </blockquote>
 <pre><code class="language-bash">curl -X PUT "http://gwwc.dev/api/users/1/incomes/1" \
 -H "Accept: application/json" \
--H "Authorization: Bearer LoHEVj8dcdmPXMmtgqDgb0i9VGQRzYJMWQ5qh1KSBFOmUle9fnWT0SDEV9Uc"</code></pre>
+-H "Authorization: Bearer fHiU0DWF9mfrNuOtXbwAP8IwAKYUQYW2tSHnEIIiWi1xYgqaB37vMtGeiu2l"
+--data "amount=30000"</code></pre>
 <pre><code class="language-javascript">var settings = {
     "async": true,
     "crossDomain": true,
@@ -347,13 +451,25 @@ $.ajax(settings).done(function (response) {
     "method": "PUT",
     "headers": {
         "accept": "application/json",
-        "authorization": "Bearer LoHEVj8dcdmPXMmtgqDgb0i9VGQRzYJMWQ5qh1KSBFOmUle9fnWT0SDEV9Uc"
+        "authorization": "Bearer fHiU0DWF9mfrNuOtXbwAP8IwAKYUQYW2tSHnEIIiWi1xYgqaB37vMtGeiu2l"
     }
 }
 
 $.ajax(settings).done(function (response) {
     console.log(response);
 });</code></pre>
+<blockquote>
+<p>Example response</p>
+</blockquote>
+<pre><code class="language-json">{
+    "id": 1,
+    "amount": "30000",
+    "currency": "GBP",
+    "year": 2015,
+    "percentage_pledged": 10,
+    "created_at": "2017-07-28 23:15:53",
+    "updated_at": "2017-08-07 15:45:37"
+}</code></pre>
 <h3>HTTP Request</h3>
 <p><code>PUT api/users/{user}/incomes/{income}</code></p>
 <p><code>PATCH api/users/{user}/incomes/{income}</code></p>
@@ -365,8 +481,7 @@ $.ajax(settings).done(function (response) {
 </blockquote>
 <pre><code class="language-bash">curl -X DELETE "http://gwwc.dev/api/users/1/incomes/1" \
 -H "Accept: application/json" \
--H "Authorization: Bearer LoHEVj8dcdmPXMmtgqDgb0i9VGQRzYJMWQ5qh1KSBFOmUle9fnWT0SDEV9Uc"
---data "amount=1000"</code></pre>
+-H "Authorization: Bearer fHiU0DWF9mfrNuOtXbwAP8IwAKYUQYW2tSHnEIIiWi1xYgqaB37vMtGeiu2l"</code></pre>
 <pre><code class="language-javascript">var settings = {
     "async": true,
     "crossDomain": true,
@@ -374,7 +489,7 @@ $.ajax(settings).done(function (response) {
     "method": "DELETE",
     "headers": {
         "accept": "application/json",
-        "authorization": "Bearer LoHEVj8dcdmPXMmtgqDgb0i9VGQRzYJMWQ5qh1KSBFOmUle9fnWT0SDEV9Uc"
+        "authorization": "Bearer fHiU0DWF9mfrNuOtXbwAP8IwAKYUQYW2tSHnEIIiWi1xYgqaB37vMtGeiu2l"
     }
 }
 
@@ -392,7 +507,7 @@ $.ajax(settings).done(function (response) {
 </blockquote>
 <pre><code class="language-bash">curl -X GET "http://gwwc.dev/api/users" \
 -H "Accept: application/json" \
--H "Authorization: Bearer LoHEVj8dcdmPXMmtgqDgb0i9VGQRzYJMWQ5qh1KSBFOmUle9fnWT0SDEV9Uc"</code></pre>
+-H "Authorization: Bearer fHiU0DWF9mfrNuOtXbwAP8IwAKYUQYW2tSHnEIIiWi1xYgqaB37vMtGeiu2l"</code></pre>
 <pre><code class="language-javascript">var settings = {
     "async": true,
     "crossDomain": true,
@@ -400,7 +515,7 @@ $.ajax(settings).done(function (response) {
     "method": "GET",
     "headers": {
         "accept": "application/json",
-        "authorization": "Bearer LoHEVj8dcdmPXMmtgqDgb0i9VGQRzYJMWQ5qh1KSBFOmUle9fnWT0SDEV9Uc"
+        "authorization": "Bearer fHiU0DWF9mfrNuOtXbwAP8IwAKYUQYW2tSHnEIIiWi1xYgqaB37vMtGeiu2l"
     }
 }
 
@@ -410,9 +525,28 @@ $.ajax(settings).done(function (response) {
 <blockquote>
 <p>Example response:</p>
 </blockquote>
-<pre><code class="language-json">{
-    "error": "Unauthenticated."
-}</code></pre>
+<pre><code class="language-json">[
+    {
+        "id": 1,
+        "name": "John Doe",
+        "email": "admin@test.com",
+        "pledge": 10,
+        "created_at": "2017-07-28 23:15:52",
+        "updated_at": "2017-08-07 15:23:45",
+        "api_token": "fHiU0DWF9mfrNuOtXbwAP8IwAKYUQYW2tSHnEIIiWi1xYgqaB37vMtGeiu2l",
+        "pledged_at": "2016-07-04 09:55:33"
+    },
+    {
+        "id": 2,
+        "name": "Abigayle Grimes",
+        "email": "ghuels@yahoo.com",
+        "pledge": 10,
+        "created_at": "2017-07-28 23:15:52",
+        "updated_at": "2017-08-07 15:24:40",
+        "api_token": null,
+        "pledged_at": "2015-10-29 11:38:31"
+    }
+]</code></pre>
 <h3>HTTP Request</h3>
 <p><code>GET api/users</code></p>
 <p><code>HEAD api/users</code></p>
@@ -424,7 +558,7 @@ $.ajax(settings).done(function (response) {
 </blockquote>
 <pre><code class="language-bash">curl -X GET "http://gwwc.dev/api/users/1" \
 -H "Accept: application/json" \
--H "Authorization: Bearer LoHEVj8dcdmPXMmtgqDgb0i9VGQRzYJMWQ5qh1KSBFOmUle9fnWT0SDEV9Uc"</code></pre>
+-H "Authorization: Bearer fHiU0DWF9mfrNuOtXbwAP8IwAKYUQYW2tSHnEIIiWi1xYgqaB37vMtGeiu2l"</code></pre>
 <pre><code class="language-javascript">var settings = {
     "async": true,
     "crossDomain": true,
@@ -432,7 +566,7 @@ $.ajax(settings).done(function (response) {
     "method": "GET",
     "headers": {
         "accept": "application/json",
-        "authorization": "Bearer LoHEVj8dcdmPXMmtgqDgb0i9VGQRzYJMWQ5qh1KSBFOmUle9fnWT0SDEV9Uc"
+        "authorization": "Bearer fHiU0DWF9mfrNuOtXbwAP8IwAKYUQYW2tSHnEIIiWi1xYgqaB37vMtGeiu2l"
     }
 }
 
@@ -443,7 +577,14 @@ $.ajax(settings).done(function (response) {
 <p>Example response:</p>
 </blockquote>
 <pre><code class="language-json">{
-    "error": "Unauthenticated."
+    "id": 1,
+    "name": "John Doe",
+    "email": "foo@test.com",
+    "pledge": 10,
+    "created_at": "2017-07-28 23:15:52",
+    "updated_at": "2017-08-07 15:30:13",
+    "api_token": "fHiU0DWF9mfrNuOtXbwAP8IwAKYUQYW2tSHnEIIiWi1xYgqaB37vMtGeiu2l",
+    "pledged_at": "2016-07-04 09:55:33"
 }</code></pre>
 <h3>HTTP Request</h3>
 <p><code>GET api/users/{user}</code></p>
@@ -456,7 +597,8 @@ $.ajax(settings).done(function (response) {
 </blockquote>
 <pre><code class="language-bash">curl -X PUT "http://gwwc.dev/api/users/1" \
 -H "Accept: application/json" \
--H "Authorization: Bearer LoHEVj8dcdmPXMmtgqDgb0i9VGQRzYJMWQ5qh1KSBFOmUle9fnWT0SDEV9Uc"</code></pre>
+-H "Authorization: Bearer fHiU0DWF9mfrNuOtXbwAP8IwAKYUQYW2tSHnEIIiWi1xYgqaB37vMtGeiu2l"
+--data "email=foo@test.com"</code></pre>
 <pre><code class="language-javascript">var settings = {
     "async": true,
     "crossDomain": true,
@@ -464,13 +606,26 @@ $.ajax(settings).done(function (response) {
     "method": "PUT",
     "headers": {
         "accept": "application/json",
-        "authorization": "Bearer LoHEVj8dcdmPXMmtgqDgb0i9VGQRzYJMWQ5qh1KSBFOmUle9fnWT0SDEV9Uc"
+        "authorization": "Bearer fHiU0DWF9mfrNuOtXbwAP8IwAKYUQYW2tSHnEIIiWi1xYgqaB37vMtGeiu2l"
     }
 }
 
 $.ajax(settings).done(function (response) {
     console.log(response);
 });</code></pre>
+<blockquote>
+<p>Example response</p>
+</blockquote>
+<pre><code class="language-json">{
+    "id": 1,
+    "name": "John Doe",
+    "email": "foo@test.com",
+    "pledge": 10,
+    "created_at": "2017-07-28 23:15:52",
+    "updated_at": "2017-08-07 15:30:13",
+    "api_token": "fHiU0DWF9mfrNuOtXbwAP8IwAKYUQYW2tSHnEIIiWi1xYgqaB37vMtGeiu2l",
+    "pledged_at": "2016-07-04 09:55:33"
+}</code></pre>
 <h3>HTTP Request</h3>
 <p><code>PUT api/users/{user}</code></p>
 <p><code>PATCH api/users/{user}</code></p>
@@ -482,8 +637,7 @@ $.ajax(settings).done(function (response) {
 </blockquote>
 <pre><code class="language-bash">curl -X DELETE "http://gwwc.dev/api/users/1" \
 -H "Accept: application/json" \
--H "Authorization: Bearer LoHEVj8dcdmPXMmtgqDgb0i9VGQRzYJMWQ5qh1KSBFOmUle9fnWT0SDEV9Uc"
---data "name=Fritz"</code></pre>
+-H "Authorization: Bearer fHiU0DWF9mfrNuOtXbwAP8IwAKYUQYW2tSHnEIIiWi1xYgqaB37vMtGeiu2l"</code></pre>
 <pre><code class="language-javascript">var settings = {
     "async": true,
     "crossDomain": true,
@@ -491,7 +645,7 @@ $.ajax(settings).done(function (response) {
     "method": "DELETE",
     "headers": {
         "accept": "application/json",
-        "authorization": "Bearer LoHEVj8dcdmPXMmtgqDgb0i9VGQRzYJMWQ5qh1KSBFOmUle9fnWT0SDEV9Uc"
+        "authorization": "Bearer fHiU0DWF9mfrNuOtXbwAP8IwAKYUQYW2tSHnEIIiWi1xYgqaB37vMtGeiu2l"
     }
 }
 

@@ -28,7 +28,7 @@ Welcome to the generated API reference.
 ```bash
 curl -X POST "http://gwwc.dev/api/login"  \
 -H "Accept: application/json" \
---data "email=zoie.cartwright@gmail.com&password=gwwc"
+--data "email=admin@test.com&password=gwwc"
 ```
 
 ```javascript
@@ -47,6 +47,22 @@ $.ajax(settings).done(function (response) {
 });
 ```
 
+> Example response:
+
+```json
+{
+    "data": {
+        "id": 1,
+        "name": "John Doe",
+        "email": "admin@test.com",
+        "pledge": 10,
+        "created_at": "2017-07-28 23:15:52",
+        "updated_at": "2017-08-07 15:23:45",
+        "api_token": "fHiU0DWF9mfrNuOtXbwAP8IwAKYUQYW2tSHnEIIiWi1xYgqaB37vMtGeiu2l",
+        "pledged_at": "2016-07-04 09:55:33"
+    }
+}
+```
 
 ### HTTP Request
 `POST api/login`
@@ -62,7 +78,7 @@ $.ajax(settings).done(function (response) {
 ```bash
 curl -X POST "http://gwwc.dev/api/logout" \
 -H "Accept: application/json" \
--H "Authorization: Bearer LoHEVj8dcdmPXMmtgqDgb0i9VGQRzYJMWQ5qh1KSBFOmUle9fnWT0SDEV9Uc"
+-H "Authorization: Bearer fHiU0DWF9mfrNuOtXbwAP8IwAKYUQYW2tSHnEIIiWi1xYgqaB37vMtGeiu2l"
 ```
 
 ```javascript
@@ -73,7 +89,7 @@ var settings = {
     "method": "POST",
     "headers": {
         "accept": "application/json",
-        "authorization": "Bearer LoHEVj8dcdmPXMmtgqDgb0i9VGQRzYJMWQ5qh1KSBFOmUle9fnWT0SDEV9Uc"
+        "authorization": "Bearer fHiU0DWF9mfrNuOtXbwAP8IwAKYUQYW2tSHnEIIiWi1xYgqaB37vMtGeiu2l"
     }
 }
 
@@ -82,6 +98,13 @@ $.ajax(settings).done(function (response) {
 });
 ```
 
+> Example request:
+
+```
+{
+    "data": "User logged out."
+}
+```
 
 ### HTTP Request
 `POST api/logout`
@@ -98,7 +121,7 @@ $.ajax(settings).done(function (response) {
 ```bash
 curl -X GET "http://gwwc.dev/api/users/1/donations" \
 -H "Accept: application/json" \
--H "Authorization: Bearer LoHEVj8dcdmPXMmtgqDgb0i9VGQRzYJMWQ5qh1KSBFOmUle9fnWT0SDEV9Uc"
+-H "Authorization: Bearer fHiU0DWF9mfrNuOtXbwAP8IwAKYUQYW2tSHnEIIiWi1xYgqaB37vMtGeiu2l"
 ```
 
 ```javascript
@@ -109,7 +132,7 @@ var settings = {
     "method": "GET",
     "headers": {
         "accept": "application/json",
-        "authorization": "Bearer LoHEVj8dcdmPXMmtgqDgb0i9VGQRzYJMWQ5qh1KSBFOmUle9fnWT0SDEV9Uc"
+        "authorization": "Bearer fHiU0DWF9mfrNuOtXbwAP8IwAKYUQYW2tSHnEIIiWi1xYgqaB37vMtGeiu2l"
     }
 }
 
@@ -121,9 +144,26 @@ $.ajax(settings).done(function (response) {
 > Example response:
 
 ```json
-{
-    "error": "Unauthenticated."
-}
+[
+    {
+        "id": 86,
+        "created_at": "2017-07-28 23:15:52",
+        "updated_at": "2017-07-28 23:15:52",
+        "charity": "McClure, Wisoky and Tremblay",
+        "amount": "9010.00",
+        "currency": "GBP",
+        "date": "2017-04-30"
+    },
+    {
+        "id": 2,
+        "created_at": "2017-07-28 23:15:52",
+        "updated_at": "2017-07-28 23:15:52",
+        "charity": "Witting Group",
+        "amount": "3580.00",
+        "currency": "GBP",
+        "date": "2017-01-25"
+    }
+]
 ```
 
 ### HTTP Request
@@ -142,8 +182,8 @@ $.ajax(settings).done(function (response) {
 ```bash
 curl -X POST "http://gwwc.dev/api/users/1/donations" \
 -H "Accept: application/json" \
--H "Authorization: Bearer LoHEVj8dcdmPXMmtgqDgb0i9VGQRzYJMWQ5qh1KSBFOmUle9fnWT0SDEV9Uc"
---data "currency=CHF&amount=100&date=2017-02-21&user_id=1"
+-H "Authorization: Bearer fHiU0DWF9mfrNuOtXbwAP8IwAKYUQYW2tSHnEIIiWi1xYgqaB37vMtGeiu2l"
+--data "charity=Halligalli&currency=CHF&amount=200&date=2017-02-02&user_id=1"
 ```
 
 ```javascript
@@ -154,7 +194,7 @@ var settings = {
     "method": "POST",
     "headers": {
         "accept": "application/json",
-        "authorization": "Bearer LoHEVj8dcdmPXMmtgqDgb0i9VGQRzYJMWQ5qh1KSBFOmUle9fnWT0SDEV9Uc"
+        "authorization": "Bearer fHiU0DWF9mfrNuOtXbwAP8IwAKYUQYW2tSHnEIIiWi1xYgqaB37vMtGeiu2l"
     }
 }
 
@@ -163,6 +203,19 @@ $.ajax(settings).done(function (response) {
 });
 ```
 
+> Exmaple response
+
+```
+{
+    "charity": "Halligalli",
+    "currency": "CHF",
+    "amount": "200",
+    "date": "2017-02-02",
+    "updated_at": "2017-08-07 15:37:04",
+    "created_at": "2017-08-07 15:37:04",
+    "id": 101
+}
+```
 
 ### HTTP Request
 `POST api/users/{user}/donations`
@@ -178,7 +231,7 @@ $.ajax(settings).done(function (response) {
 ```bash
 curl -X GET "http://gwwc.dev/api/users/1/donations/1" \
 -H "Accept: application/json" \
--H "Authorization: Bearer LoHEVj8dcdmPXMmtgqDgb0i9VGQRzYJMWQ5qh1KSBFOmUle9fnWT0SDEV9Uc"
+-H "Authorization: Bearer fHiU0DWF9mfrNuOtXbwAP8IwAKYUQYW2tSHnEIIiWi1xYgqaB37vMtGeiu2l"
 ```
 
 ```javascript
@@ -189,7 +242,7 @@ var settings = {
     "method": "GET",
     "headers": {
         "accept": "application/json",
-        "authorization": "Bearer LoHEVj8dcdmPXMmtgqDgb0i9VGQRzYJMWQ5qh1KSBFOmUle9fnWT0SDEV9Uc"
+        "authorization": "Bearer fHiU0DWF9mfrNuOtXbwAP8IwAKYUQYW2tSHnEIIiWi1xYgqaB37vMtGeiu2l"
     }
 }
 
@@ -202,7 +255,13 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "error": "Unauthenticated."
+    "id": 1,
+    "created_at": "2017-07-28 23:15:52",
+    "updated_at": "2017-07-28 23:15:52",
+    "charity": "Hermiston PLC",
+    "amount": "3490.00",
+    "currency": "GBP",
+    "date": "2016-07-08"
 }
 ```
 
@@ -222,7 +281,8 @@ $.ajax(settings).done(function (response) {
 ```bash
 curl -X PUT "http://gwwc.dev/api/users/1/donations/1" \
 -H "Accept: application/json" \
--H "Authorization: Bearer LoHEVj8dcdmPXMmtgqDgb0i9VGQRzYJMWQ5qh1KSBFOmUle9fnWT0SDEV9Uc"
+-H "Authorization: Bearer fHiU0DWF9mfrNuOtXbwAP8IwAKYUQYW2tSHnEIIiWi1xYgqaB37vMtGeiu2l"
+--data "currency=CHF"
 ```
 
 ```javascript
@@ -233,13 +293,27 @@ var settings = {
     "method": "PUT",
     "headers": {
         "accept": "application/json",
-        "authorization": "Bearer LoHEVj8dcdmPXMmtgqDgb0i9VGQRzYJMWQ5qh1KSBFOmUle9fnWT0SDEV9Uc"
+        "authorization": "Bearer fHiU0DWF9mfrNuOtXbwAP8IwAKYUQYW2tSHnEIIiWi1xYgqaB37vMtGeiu2l"
     }
 }
 
 $.ajax(settings).done(function (response) {
     console.log(response);
 });
+```
+
+> Exmaple response
+
+```
+{
+    "id": 1,
+    "created_at": "2017-07-28 23:15:52",
+    "updated_at": "2017-08-07 15:35:07",
+    "charity": "McClure, Wisoky and Tremblay",
+    "amount": "9010.00",
+    "currency": "CHF",
+    "date": "2017-04-30"
+}
 ```
 
 
@@ -259,8 +333,7 @@ $.ajax(settings).done(function (response) {
 ```bash
 curl -X DELETE "http://gwwc.dev/api/users/1/donations/1" \
 -H "Accept: application/json" \
--H "Authorization: Bearer LoHEVj8dcdmPXMmtgqDgb0i9VGQRzYJMWQ5qh1KSBFOmUle9fnWT0SDEV9Uc"
---data "charity=Foobar"
+-H "Authorization: Bearer fHiU0DWF9mfrNuOtXbwAP8IwAKYUQYW2tSHnEIIiWi1xYgqaB37vMtGeiu2l"
 ```
 
 ```javascript
@@ -271,7 +344,7 @@ var settings = {
     "method": "DELETE",
     "headers": {
         "accept": "application/json",
-        "authorization": "Bearer LoHEVj8dcdmPXMmtgqDgb0i9VGQRzYJMWQ5qh1KSBFOmUle9fnWT0SDEV9Uc"
+        "authorization": "Bearer fHiU0DWF9mfrNuOtXbwAP8IwAKYUQYW2tSHnEIIiWi1xYgqaB37vMtGeiu2l"
     }
 }
 
@@ -296,7 +369,7 @@ $.ajax(settings).done(function (response) {
 ```bash
 curl -X GET "http://gwwc.dev/api/users/1/incomes" \
 -H "Accept: application/json" \
--H "Authorization: Bearer LoHEVj8dcdmPXMmtgqDgb0i9VGQRzYJMWQ5qh1KSBFOmUle9fnWT0SDEV9Uc"
+-H "Authorization: Bearer fHiU0DWF9mfrNuOtXbwAP8IwAKYUQYW2tSHnEIIiWi1xYgqaB37vMtGeiu2l"
 ```
 
 ```javascript
@@ -307,7 +380,7 @@ var settings = {
     "method": "GET",
     "headers": {
         "accept": "application/json",
-        "authorization": "Bearer LoHEVj8dcdmPXMmtgqDgb0i9VGQRzYJMWQ5qh1KSBFOmUle9fnWT0SDEV9Uc"
+        "authorization": "Bearer fHiU0DWF9mfrNuOtXbwAP8IwAKYUQYW2tSHnEIIiWi1xYgqaB37vMtGeiu2l"
     }
 }
 
@@ -319,9 +392,26 @@ $.ajax(settings).done(function (response) {
 > Example response:
 
 ```json
-{
-    "error": "Unauthenticated."
-}
+[
+    {
+        "id": 14,
+        "amount": "232600.00",
+        "currency": "EUR",
+        "year": 2017,
+        "percentage_pledged": 10,
+        "created_at": "2017-07-28 23:15:53",
+        "updated_at": "2017-07-28 23:15:53"
+    },
+    {
+        "id": 6,
+        "amount": "198500.00",
+        "currency": "EUR",
+        "year": 2016,
+        "percentage_pledged": 10,
+        "created_at": "2017-07-28 23:15:53",
+        "updated_at": "2017-07-28 23:15:53"
+    }
+]
 ```
 
 ### HTTP Request
@@ -340,8 +430,8 @@ $.ajax(settings).done(function (response) {
 ```bash
 curl -X POST "http://gwwc.dev/api/users/1/incomes" \
 -H "Accept: application/json" \
--H "Authorization: Bearer LoHEVj8dcdmPXMmtgqDgb0i9VGQRzYJMWQ5qh1KSBFOmUle9fnWT0SDEV9Uc"
---data "currency=CHF&amount=100&year=2017&user_id=1&percentage_pledged=10"
+-H "Authorization: Bearer fHiU0DWF9mfrNuOtXbwAP8IwAKYUQYW2tSHnEIIiWi1xYgqaB37vMtGeiu2l"
+--data "currency=CHF&amount=20000&year=2017&user_id=1&percentage_pledged=10"
 ```
 
 ```javascript
@@ -352,7 +442,7 @@ var settings = {
     "method": "POST",
     "headers": {
         "accept": "application/json",
-        "authorization": "Bearer LoHEVj8dcdmPXMmtgqDgb0i9VGQRzYJMWQ5qh1KSBFOmUle9fnWT0SDEV9Uc"
+        "authorization": "Bearer fHiU0DWF9mfrNuOtXbwAP8IwAKYUQYW2tSHnEIIiWi1xYgqaB37vMtGeiu2l"
     }
 }
 
@@ -361,6 +451,19 @@ $.ajax(settings).done(function (response) {
 });
 ```
 
+> Example response
+
+```json
+{
+    "year": "2017",
+    "currency": "CHF",
+    "amount": "20000",
+    "percentage_pledged": "10",
+    "updated_at": "2017-08-07 15:48:34",
+    "created_at": "2017-08-07 15:48:34",
+    "id": 25
+}
+```
 
 ### HTTP Request
 `POST api/users/{user}/incomes`
@@ -376,7 +479,7 @@ $.ajax(settings).done(function (response) {
 ```bash
 curl -X GET "http://gwwc.dev/api/users/1/incomes/1" \
 -H "Accept: application/json" \
--H "Authorization: Bearer LoHEVj8dcdmPXMmtgqDgb0i9VGQRzYJMWQ5qh1KSBFOmUle9fnWT0SDEV9Uc"
+-H "Authorization: Bearer fHiU0DWF9mfrNuOtXbwAP8IwAKYUQYW2tSHnEIIiWi1xYgqaB37vMtGeiu2l"
 ```
 
 ```javascript
@@ -387,7 +490,7 @@ var settings = {
     "method": "GET",
     "headers": {
         "accept": "application/json",
-        "authorization": "Bearer LoHEVj8dcdmPXMmtgqDgb0i9VGQRzYJMWQ5qh1KSBFOmUle9fnWT0SDEV9Uc"
+        "authorization": "Bearer fHiU0DWF9mfrNuOtXbwAP8IwAKYUQYW2tSHnEIIiWi1xYgqaB37vMtGeiu2l"
     }
 }
 
@@ -400,7 +503,13 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "error": "Unauthenticated."
+    "id": 1,
+    "amount": "29000.00",
+    "currency": "GBP",
+    "year": 2015,
+    "percentage_pledged": 10,
+    "created_at": "2017-07-28 23:15:53",
+    "updated_at": "2017-07-28 23:15:53"
 }
 ```
 
@@ -420,7 +529,8 @@ $.ajax(settings).done(function (response) {
 ```bash
 curl -X PUT "http://gwwc.dev/api/users/1/incomes/1" \
 -H "Accept: application/json" \
--H "Authorization: Bearer LoHEVj8dcdmPXMmtgqDgb0i9VGQRzYJMWQ5qh1KSBFOmUle9fnWT0SDEV9Uc"
+-H "Authorization: Bearer fHiU0DWF9mfrNuOtXbwAP8IwAKYUQYW2tSHnEIIiWi1xYgqaB37vMtGeiu2l"
+--data "amount=30000"
 ```
 
 ```javascript
@@ -431,13 +541,27 @@ var settings = {
     "method": "PUT",
     "headers": {
         "accept": "application/json",
-        "authorization": "Bearer LoHEVj8dcdmPXMmtgqDgb0i9VGQRzYJMWQ5qh1KSBFOmUle9fnWT0SDEV9Uc"
+        "authorization": "Bearer fHiU0DWF9mfrNuOtXbwAP8IwAKYUQYW2tSHnEIIiWi1xYgqaB37vMtGeiu2l"
     }
 }
 
 $.ajax(settings).done(function (response) {
     console.log(response);
 });
+```
+
+> Example response
+
+```json
+{
+    "id": 1,
+    "amount": "30000",
+    "currency": "GBP",
+    "year": 2015,
+    "percentage_pledged": 10,
+    "created_at": "2017-07-28 23:15:53",
+    "updated_at": "2017-08-07 15:45:37"
+}
 ```
 
 
@@ -457,8 +581,7 @@ $.ajax(settings).done(function (response) {
 ```bash
 curl -X DELETE "http://gwwc.dev/api/users/1/incomes/1" \
 -H "Accept: application/json" \
--H "Authorization: Bearer LoHEVj8dcdmPXMmtgqDgb0i9VGQRzYJMWQ5qh1KSBFOmUle9fnWT0SDEV9Uc"
---data "amount=1000"
+-H "Authorization: Bearer fHiU0DWF9mfrNuOtXbwAP8IwAKYUQYW2tSHnEIIiWi1xYgqaB37vMtGeiu2l"
 ```
 
 ```javascript
@@ -469,7 +592,7 @@ var settings = {
     "method": "DELETE",
     "headers": {
         "accept": "application/json",
-        "authorization": "Bearer LoHEVj8dcdmPXMmtgqDgb0i9VGQRzYJMWQ5qh1KSBFOmUle9fnWT0SDEV9Uc"
+        "authorization": "Bearer fHiU0DWF9mfrNuOtXbwAP8IwAKYUQYW2tSHnEIIiWi1xYgqaB37vMtGeiu2l"
     }
 }
 
@@ -494,7 +617,7 @@ $.ajax(settings).done(function (response) {
 ```bash
 curl -X GET "http://gwwc.dev/api/users" \
 -H "Accept: application/json" \
--H "Authorization: Bearer LoHEVj8dcdmPXMmtgqDgb0i9VGQRzYJMWQ5qh1KSBFOmUle9fnWT0SDEV9Uc"
+-H "Authorization: Bearer fHiU0DWF9mfrNuOtXbwAP8IwAKYUQYW2tSHnEIIiWi1xYgqaB37vMtGeiu2l"
 ```
 
 ```javascript
@@ -505,7 +628,7 @@ var settings = {
     "method": "GET",
     "headers": {
         "accept": "application/json",
-        "authorization": "Bearer LoHEVj8dcdmPXMmtgqDgb0i9VGQRzYJMWQ5qh1KSBFOmUle9fnWT0SDEV9Uc"
+        "authorization": "Bearer fHiU0DWF9mfrNuOtXbwAP8IwAKYUQYW2tSHnEIIiWi1xYgqaB37vMtGeiu2l"
     }
 }
 
@@ -517,9 +640,28 @@ $.ajax(settings).done(function (response) {
 > Example response:
 
 ```json
-{
-    "error": "Unauthenticated."
-}
+[
+    {
+        "id": 1,
+        "name": "John Doe",
+        "email": "admin@test.com",
+        "pledge": 10,
+        "created_at": "2017-07-28 23:15:52",
+        "updated_at": "2017-08-07 15:23:45",
+        "api_token": "fHiU0DWF9mfrNuOtXbwAP8IwAKYUQYW2tSHnEIIiWi1xYgqaB37vMtGeiu2l",
+        "pledged_at": "2016-07-04 09:55:33"
+    },
+    {
+        "id": 2,
+        "name": "Abigayle Grimes",
+        "email": "ghuels@yahoo.com",
+        "pledge": 10,
+        "created_at": "2017-07-28 23:15:52",
+        "updated_at": "2017-08-07 15:24:40",
+        "api_token": null,
+        "pledged_at": "2015-10-29 11:38:31"
+    }
+]
 ```
 
 ### HTTP Request
@@ -538,7 +680,7 @@ $.ajax(settings).done(function (response) {
 ```bash
 curl -X GET "http://gwwc.dev/api/users/1" \
 -H "Accept: application/json" \
--H "Authorization: Bearer LoHEVj8dcdmPXMmtgqDgb0i9VGQRzYJMWQ5qh1KSBFOmUle9fnWT0SDEV9Uc"
+-H "Authorization: Bearer fHiU0DWF9mfrNuOtXbwAP8IwAKYUQYW2tSHnEIIiWi1xYgqaB37vMtGeiu2l"
 ```
 
 ```javascript
@@ -549,7 +691,7 @@ var settings = {
     "method": "GET",
     "headers": {
         "accept": "application/json",
-        "authorization": "Bearer LoHEVj8dcdmPXMmtgqDgb0i9VGQRzYJMWQ5qh1KSBFOmUle9fnWT0SDEV9Uc"
+        "authorization": "Bearer fHiU0DWF9mfrNuOtXbwAP8IwAKYUQYW2tSHnEIIiWi1xYgqaB37vMtGeiu2l"
     }
 }
 
@@ -562,7 +704,14 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "error": "Unauthenticated."
+    "id": 1,
+    "name": "John Doe",
+    "email": "foo@test.com",
+    "pledge": 10,
+    "created_at": "2017-07-28 23:15:52",
+    "updated_at": "2017-08-07 15:30:13",
+    "api_token": "fHiU0DWF9mfrNuOtXbwAP8IwAKYUQYW2tSHnEIIiWi1xYgqaB37vMtGeiu2l",
+    "pledged_at": "2016-07-04 09:55:33"
 }
 ```
 
@@ -582,7 +731,8 @@ $.ajax(settings).done(function (response) {
 ```bash
 curl -X PUT "http://gwwc.dev/api/users/1" \
 -H "Accept: application/json" \
--H "Authorization: Bearer LoHEVj8dcdmPXMmtgqDgb0i9VGQRzYJMWQ5qh1KSBFOmUle9fnWT0SDEV9Uc"
+-H "Authorization: Bearer fHiU0DWF9mfrNuOtXbwAP8IwAKYUQYW2tSHnEIIiWi1xYgqaB37vMtGeiu2l"
+--data "email=foo@test.com"
 ```
 
 ```javascript
@@ -593,13 +743,28 @@ var settings = {
     "method": "PUT",
     "headers": {
         "accept": "application/json",
-        "authorization": "Bearer LoHEVj8dcdmPXMmtgqDgb0i9VGQRzYJMWQ5qh1KSBFOmUle9fnWT0SDEV9Uc"
+        "authorization": "Bearer fHiU0DWF9mfrNuOtXbwAP8IwAKYUQYW2tSHnEIIiWi1xYgqaB37vMtGeiu2l"
     }
 }
 
 $.ajax(settings).done(function (response) {
     console.log(response);
 });
+```
+
+> Example response
+
+```json
+{
+    "id": 1,
+    "name": "John Doe",
+    "email": "foo@test.com",
+    "pledge": 10,
+    "created_at": "2017-07-28 23:15:52",
+    "updated_at": "2017-08-07 15:30:13",
+    "api_token": "fHiU0DWF9mfrNuOtXbwAP8IwAKYUQYW2tSHnEIIiWi1xYgqaB37vMtGeiu2l",
+    "pledged_at": "2016-07-04 09:55:33"
+}
 ```
 
 
@@ -619,8 +784,7 @@ $.ajax(settings).done(function (response) {
 ```bash
 curl -X DELETE "http://gwwc.dev/api/users/1" \
 -H "Accept: application/json" \
--H "Authorization: Bearer LoHEVj8dcdmPXMmtgqDgb0i9VGQRzYJMWQ5qh1KSBFOmUle9fnWT0SDEV9Uc"
---data "name=Fritz"
+-H "Authorization: Bearer fHiU0DWF9mfrNuOtXbwAP8IwAKYUQYW2tSHnEIIiWi1xYgqaB37vMtGeiu2l"
 ```
 
 ```javascript
@@ -631,7 +795,7 @@ var settings = {
     "method": "DELETE",
     "headers": {
         "accept": "application/json",
-        "authorization": "Bearer LoHEVj8dcdmPXMmtgqDgb0i9VGQRzYJMWQ5qh1KSBFOmUle9fnWT0SDEV9Uc"
+        "authorization": "Bearer fHiU0DWF9mfrNuOtXbwAP8IwAKYUQYW2tSHnEIIiWi1xYgqaB37vMtGeiu2l"
     }
 }
 
