@@ -1,4 +1,4 @@
-# CEA Trial Task
+# GWWC simplified clone
 
 Simplified GWWC clone
 
